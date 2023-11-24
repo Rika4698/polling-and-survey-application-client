@@ -6,7 +6,7 @@ const Login = () => {
     return (
         
         <div className="">
-           <div className="max-w-screen-lg mx-auto pt-14 bg-violet-300 shadow-2xl lg:mt-8">
+           <div className="max-w-screen-md mx-auto pt-14 bg-violet-300 shadow-2xl lg:my-8 xl:max-w-screen-lg">
   <div className="hero-content flex-col lg:flex-row">
     <div className="hidden lg:flex lg:w-2/5 xl:w-2/5">
       
