@@ -3,11 +3,12 @@ import {
     
   } from "react-router-dom";
 import Main from "../Layout/Main";
+import Login from "../Pages/Login/Login";
   export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
-    //   children:[
+      children:[
     //     {
     //         path:'/',
     //         element:<Home></Home>,
@@ -16,10 +17,10 @@ import Main from "../Layout/Main";
     //     path:'/menu',
     //     element:<Menu></Menu>,
     //   },
-    //   {
-    //     path:'/order',
-    //     element:<Order></Order>,
-    //   }
-    //   ]
+      {
+        path:'/login',
+        element:<Login></Login>,
+      }
+      ]
     },
   ]);

@@ -28,7 +28,9 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+  <NavLink to='/login'>
+                <button className="btn capitalize bg-gradient-to-r from-blue-300 to-fuchsia-400 text-white ">login</button>
+              </NavLink>
   </div>
 </div> 
         </div>
