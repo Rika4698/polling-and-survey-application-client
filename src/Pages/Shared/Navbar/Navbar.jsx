@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { useContext } from "react";
 import { BiLogOut } from "react-icons/bi";
@@ -14,12 +14,12 @@ const Navbar = () => {
     const navOptions=<>
   <li><NavLink to="/"
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ?  "text-[#EEFF25] font-bold text-base uppercase" : "font-semibold text-white text-base uppercase"
+                  isPending ? "pending" : isActive ?  "text-[#aa4bbd] font-bold text-base uppercase" : "font-semibold text-white text-base uppercase"
                 }>Home</NavLink></li>
                  </>
     return (
         <div>
-           <div className="navbar bg-base-100">
+           <div className="navbar bg-purple-100">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -29,7 +29,11 @@ const Navbar = () => {
       {navOptions}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <div >
+            <Link to="/">
+              <img className="  w-24 md:w-28 lg:w-28 lg:ml-8 " src="https://i.ibb.co/qMNMJSM/survey-swift-high-resolution-logo-transparent.png" alt="" />
+            </Link>
+          </div>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="flex gap-8 ">
