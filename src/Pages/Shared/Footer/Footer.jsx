@@ -3,7 +3,7 @@
 const Footer = () => {
     return (
         <div>
-           <footer className="footer footer-center p-10 bg-blue-100 ">
+           <footer className="footer footer-center p-10 bg-blue-50 ">
   <aside>
   <img className="  w-24 md:w-28 lg:w-32 lg:ml-8 " src="https://i.ibb.co/qMNMJSM/survey-swift-high-resolution-logo-transparent.png" alt="" />
     <p className="font-bold ml-10">

@@ -16,6 +16,10 @@ const Navbar = () => {
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ?  "text-[#aa4bbd] font-bold text-base uppercase" : "font-semibold text-white text-base uppercase"
                 }>Home</NavLink></li>
+  <li><NavLink to="/ff"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ?  "text-[#aa4bbd] font-bold text-base uppercase" : "font-semibold text-white text-base uppercase"
+                }>Home</NavLink></li>
                  </>
     return (
         <div>

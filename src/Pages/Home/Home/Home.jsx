@@ -1,6 +1,8 @@
 import Banner from "../Banner/Banner";
+import Section from "../Section/Section";
 import Testimonial from "../Testimonials/Testimonial";
-import Section from "./Section/Section";
+
+
 
 
 const Home = () => {
@@ -9,6 +11,7 @@ const Home = () => {
             <Banner></Banner>
             <Testimonial></Testimonial>
             <Section></Section>
+        
         </div>
     );
 };
