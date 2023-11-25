@@ -9,7 +9,10 @@ const Main = () => {
    
     return (
         <div>
-           { noHeaderFooter|| <Navbar></Navbar>}
+            <div className='sticky top-0 z-10'>
+            { noHeaderFooter|| <Navbar></Navbar>}
+            </div>
+           
             <Outlet></Outlet>
             { noHeaderFooter || <Footer></Footer>}
         </div>
