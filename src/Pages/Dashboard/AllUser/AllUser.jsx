@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { FaTrash,  FaUserAlt} from "react-icons/fa";
+import { FaTrash} from "react-icons/fa";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
@@ -12,7 +12,39 @@ const AllUser = () => {
             return res.data;
         }
     })
-
+   
+    const handleMakeAdmin = users =>{
+        axiosSecure.patch(`/user/admin/${users._id}`)
+        .then(res =>{
+            console.log(res.data)
+            if(res.data.modifiedCount > 0){
+                refetch();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${users.name} is an Admin Now!`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        })
+    }
+    const handleMakeSurveyor = users =>{
+        axiosSecure.patch(`/user/surveyor/${users._id}`)
+        .then(res =>{
+            console.log(res.data)
+            if(res.data.modifiedCount > 0){
+                refetch();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${users.name} is an Surveyor Now!`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        })
+    }
 
 
     const handleDeleteUser = users => {
@@ -44,20 +76,20 @@ const AllUser = () => {
 
     return (
         <div>
-            <div className="flex justify-evenly my-4">
-                <h2 className="text-3xl">All Users</h2>
-                <h2 className="text-3xl">Total Users: {user.length}</h2>
+            <div className=" my-4">
+                <h2 className="text-3xl text-center text-emerald-600 font-serif font-bold">Manage  Users</h2>
+                <h2 className="text-lg   text-rose-400 font-serif font-bold">Total Users: {user.length}</h2>
             </div>
             <div className="overflow-x-auto">
-                <table className="table table-zebra w-full">
+                <table className="table table-xs table-zebra w-full">
                     {/* head */}
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Action</th>
+                            <th className="text-sm">Name</th>
+                            <th className="text-sm">Email</th>
+                            <th className="text-sm">Role</th>
+                            <th className="text-sm">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,12 +99,34 @@ const AllUser = () => {
                                 <td>{users.name}</td>
                                 <td>{users.email}</td>
                                 <td>
-                                    { users.role === 'admin' ? 'Admin' : <button
-                                        // onClick={() => handleMakeAdmin(user)}
-                                        className="btn btn-lg bg-green-500">
-                                        <FaUserAlt className="text-white 
-                                        text-2xl"></FaUserAlt>
-                                    </button>}
+                                    { users.role === 'admin' ?(<div className="flex gap-6">
+                                        <h3 className="mr-4 text-2xl text-green-600 font-serif font-semibold"> Admin</h3>
+                                        <button
+                                        onClick={() => handleMakeSurveyor(users)}
+                                        className="btn btn-base bg-blue-500 text-white">
+                                       Surveyor
+                                    </button>
+                                    </div>)  : users.role === 'surveyor' ? (<div className="flex gap-6">
+                                        <h3 className="mr-4 text-xl text-blue-600 font-serif font-semibold"> Surveyor</h3>
+                                        <button
+                                        onClick={() => handleMakeAdmin(users)}
+                                        className="btn btn-base bg-purple-500 text-white">
+                                       Admin
+                                    </button>
+                                    </div>)  : (<th className="">
+
+                                    <button
+                                        onClick={() => handleMakeAdmin(users)}
+                                        className="btn btn-base bg-purple-500 text-white mr-4">
+                                       Admin
+                                    </button>
+                                    <button
+                                        onClick={() => handleMakeSurveyor(users)}
+                                        className="btn btn-base bg-blue-500 text-white">
+                                      Surveyor
+                                    </button>
+
+                                    </th>) }
                                 </td>
                                 <td>
                                     <button
