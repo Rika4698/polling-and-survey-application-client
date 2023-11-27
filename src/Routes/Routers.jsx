@@ -7,6 +7,10 @@ import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
 import Home from "../Pages/Home/Home/Home";
 import ErrorMessage from "../Pages/ErrorMessage/ErrorMessage";
+import Dashboard from "../Layout/Dashboard";
+import Surveyor from "../Pages/Dashboard/Surveyor/Surveyor";
+import PrivateRoute from "./PrivateRoute";
+import AllUser from "../Pages/Dashboard/AllUser/AllUser";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -32,4 +36,19 @@ import ErrorMessage from "../Pages/ErrorMessage/ErrorMessage";
       
       ]
     },
+    {
+        path:'dashboard',
+        element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        children:[
+            {
+                path:'surveyor',
+                element:<Surveyor></Surveyor>,
+
+            },
+            {
+                path:'user',
+                element:<AllUser></AllUser>,
+            }
+        ]
+    }
   ]);

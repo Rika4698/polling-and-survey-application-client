@@ -2,11 +2,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext, useState } from "react";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const Registration = () => {
     const location = useLocation();
     const navigate = useNavigate();
+    const axiosPublic = useAxiosPublic();
     const {googleSignIn} = useContext(AuthContext);
     const {createUser} = useContext(AuthContext);
     // const {userProfile} = useContext(AuthContext);
@@ -14,6 +16,19 @@ const Registration = () => {
     const handleGoogleAccount = () => {
         googleSignIn().then ((result) => {
             console.log(result.user);
+            const userInfo = {
+                name:result.user.displayName,
+                email:result.user.email
+            }
+            // console.log(userInfo);
+            axiosPublic.post('/user', userInfo)
+             
+                    .then(res => {
+                        
+                            console.log(res.data);
+                           
+                       
+                    })
             navigate(location?.state?location.state :'/' )
         })
         .catch(error => {
@@ -59,13 +74,29 @@ const Registration = () => {
             {
                 createUser(displayName,photoURL,email,password)
                 .then ((result) => {
-                    console.log(result.user);
-                     swal({
-                
-                    text: "Registration done successfully",
-                    icon: "success",
-                  })
-                  navigate("/login");
+                    console.log(result.user.displayName);
+                    
+                        const userInfo = {
+                            name:result.user.displayName,
+                            email:result.user.email
+                        }
+                        // console.log(userInfo);
+                        axiosPublic.post('/user', userInfo)
+                         
+                                .then(res => {
+                                    if (res.data.insertedId) {
+                                        console.log('user added to the database')
+                                        swal({
+                    
+                                            text: "Registration done successfully",
+                                            icon: "success",
+                                          })
+                                          navigate("/login");
+                                    }
+                                })
+                   
+                   
+                    
                 })
                
                 .catch(error => {

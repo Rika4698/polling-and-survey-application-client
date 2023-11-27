@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext, useState } from "react";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 
@@ -12,10 +13,21 @@ const Login = () => {
 
   const {signIn} = useContext(AuthContext);
   const {googleSignIn} = useContext(AuthContext);
+  const axiosPublic = useAxiosPublic();
  
   const handleGoogleAccount = () => {
       googleSignIn().then ((result) => {
           console.log(result.user);
+          const userInfo = {
+            name:result.user.displayName,
+            email:result.user.email
+        }
+        // console.log(userInfo);
+        axiosPublic.post('/user', userInfo)
+         
+                .then(res => {
+                    console.log(res.data);
+                })
            navigate(location?.state?location.state :'/' )
       })
       
@@ -88,7 +100,7 @@ signIn(email,password)
         <div className="form-control mt-6">
           <button className="btn bg-gradient-to-r from-green-300 to-blue-700  text-lg text-white">Login</button>
         </div>
-        <h3 className="text-center font-bold mt-4">Do not have an account? <Link to="/register" className="text-blue-700 font-extrabold">Registration</Link></h3>
+        <h3 className="text-center font-bold mt-4">Do not have an account? <Link to="/register" className="text-lime-600 font-extrabold">Registration</Link></h3>
        
       </form>
       <button onClick={handleGoogleAccount}  className="  flex gap-2 bg-blue-200 rounded-full w-56 mx-10 mb-6  outline hover:outline-4  outline-slate-100">
