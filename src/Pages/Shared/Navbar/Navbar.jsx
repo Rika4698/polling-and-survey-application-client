@@ -2,10 +2,18 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { useContext } from "react";
 import { BiLogOut } from "react-icons/bi";
+import useAdmin from "../../../hooks/useAdmin";
+import useSurveyor from "../../../hooks/useSurveyor";
+
+
+
 
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [isAdmin] = useAdmin();
+    const [isSurveyor] = useSurveyor();
+   
     const handleSignOut = () => {
       logOut()
         .then()
@@ -16,10 +24,26 @@ const Navbar = () => {
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
                 }>Home</NavLink></li>
-  <li><NavLink to="/dashboard"
-                className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
-                }>Surveyor Dashboard</NavLink></li>
+               
+                    
+                     {
+                        isAdmin &&  <li><NavLink to="/dashboard/user"
+                        className={({ isActive, isPending }) =>
+                          isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
+                        }>Admin Dashboard</NavLink></li>
+                     }
+
+                   {
+                    isSurveyor && <li><NavLink to="/dashboard/surveyor"
+                    className={({ isActive, isPending }) =>
+                      isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
+                    }>Surveyor Dashboard</NavLink></li> 
+                   }
+                    
+                    
+                    
+                
+  
                  </>
     return (
         <div>

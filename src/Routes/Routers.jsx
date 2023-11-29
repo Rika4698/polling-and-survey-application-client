@@ -11,6 +11,8 @@ import Dashboard from "../Layout/Dashboard";
 import Surveyor from "../Pages/Dashboard/Surveyor/Surveyor";
 import PrivateRoute from "./PrivateRoute";
 import AllUser from "../Pages/Dashboard/AllUser/AllUser";
+import AdminRoute from "./AdminRoute";
+import SurveyorRoute from "./SurveyorRoute";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -41,13 +43,13 @@ import AllUser from "../Pages/Dashboard/AllUser/AllUser";
         element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children:[
             {
-                path:'surveyor',
-                element:<Surveyor></Surveyor>,
-
+                path:'user',
+                element:<AdminRoute><AllUser></AllUser></AdminRoute>,
             },
             {
-                path:'user',
-                element:<AllUser></AllUser>,
+                path:'surveyor',
+                element:<SurveyorRoute><Surveyor></Surveyor></SurveyorRoute>,
+               
             }
         ]
     }

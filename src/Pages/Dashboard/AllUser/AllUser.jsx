@@ -8,7 +8,9 @@ const AllUser = () => {
     const { data: user = [], refetch} = useQuery({
         queryKey: ['user'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/user');
+            const res = await axiosSecure.get('/user'
+            
+            );
             return res.data;
         }
     })
@@ -81,7 +83,7 @@ const AllUser = () => {
                 <h2 className="text-lg   text-rose-400 font-serif font-bold">Total Users: {user.length}</h2>
             </div>
             <div className="overflow-x-auto">
-                <table className="table table-xs table-zebra w-full">
+                <table className="table table-xs   w-full ">
                     {/* head */}
                     <thead>
                         <tr>
@@ -95,19 +97,19 @@ const AllUser = () => {
                     <tbody>
                         {
                             user.map((users, index) => <tr key={users._id}>
-                                <th>{index + 1}</th>
-                                <td>{users.name}</td>
-                                <td>{users.email}</td>
+                                <th className="text-base">{index + 1}</th>
+                                <td className="text-base font-medium">{users.name}</td>
+                                <td className="text-base font-medium">{users.email}</td>
                                 <td>
                                     { users.role === 'admin' ?(<div className="flex gap-6">
-                                        <h3 className="mr-4 text-2xl text-green-600 font-serif font-semibold"> Admin</h3>
+                                        <h3 className="mr-2 text-2xl text-green-600 font-serif font-semibold"> Admin</h3>
                                         <button
                                         onClick={() => handleMakeSurveyor(users)}
                                         className="btn btn-base bg-blue-500 text-white">
                                        Surveyor
                                     </button>
                                     </div>)  : users.role === 'surveyor' ? (<div className="flex gap-6">
-                                        <h3 className="mr-4 text-xl text-blue-600 font-serif font-semibold"> Surveyor</h3>
+                                        <h3 className="mr-2 text-xl text-blue-600 font-serif font-semibold"> Surveyor</h3>
                                         <button
                                         onClick={() => handleMakeAdmin(users)}
                                         className="btn btn-base bg-purple-500 text-white">

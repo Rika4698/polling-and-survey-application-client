@@ -1,12 +1,72 @@
+import {  useState } from "react";
 import { useForm } from "react-hook-form"
+import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import swal from "sweetalert";
+
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
+
 const Surveyor = () => {
-    const { register, handleSubmit } = useForm()
-  const onSubmit = (data) =>{ 
+    const { register, handleSubmit } = useForm();
+    const [yesVoted] =useState(0);
+    const [noVoted] =useState(0);
+    const [liked] =useState(0);
+    const [disliked] =useState(0);
+    const {user} = useAuth();
+    
+    const axiosSecure = useAxiosSecure();
+    const axiosPublic = useAxiosPublic();
+  const onSubmit = async (data) =>{ 
+    // const formData ={
+    //     ...data, 
+    //     options:['Yes','No'],
+    //     yesVoted,
+    //     noVoted,
+    //     liked,
+    //     disliked,
+    //     status:'published',
+    //     loggedUser:user.email,
+    //     loggedUserName:user.displayName
+    // };
     console.log(data)
+    const imageFile = {image: data.image[0]}
+    const res = await axiosPublic.post(image_hosting_api, imageFile,{
+        headers:{
+            'content-type' : 'multipart/form-data'
+        }
+    });
+    if(res.data.success){
+        const formData ={
+            ...data,
+            image: res.data.data.display_url, 
+            options:['Yes','No'],
+            yesVoted,
+            noVoted,
+            liked,
+            disliked,
+            status:'published',
+            loggedUser:user.email,
+            loggedUserName:user.displayName
+        };
+        console.log(formData);
+        const survey = await axiosSecure.post('/survey',formData);
+        console.log(survey.data);
+        if(survey.data.insertedId){
+            swal({
+                title: 'okay!',
+                text: 'Survey Added Successfully ',
+                icon:'success',
+            })
+        }
+    }
+    console.log(res.data);
   };
      
       return (
           <div>
+            <h2 className="text-5xl font-extrabold text-center text-green-400 underline  mb-10">Create Survey</h2>
              <form onSubmit={handleSubmit(onSubmit)}>
       <div className="md:flex mb-8">
       <div className="form-control md:w-1/2 ">
@@ -37,11 +97,11 @@ const Surveyor = () => {
   <select defaultValue='default' {...register("category")}
        className="select select-bordered w-full " >
   <option disabled value='default'>Select a category</option>
-  <option value="education">Education</option>
-        <option value="technology">Technology</option>
-        <option value="market">Marketing</option>
-        <option value="health">Health Care</option>
-        <option value="business">Business</option>
+  <option>Education</option>
+        <option >Technology</option>
+        <option >Marketing</option>
+        <option >Health Care</option>
+        <option >Work and Career</option>
 </select>
   
 </div>
@@ -83,7 +143,19 @@ const Surveyor = () => {
    className="input input-bordered w-full" />
   
 </div>
-      <div className="form-control md:w-1/2 ml-6 ">
+<div className="form-control md:w-1/2 ml-6  ">
+  <label className="label">
+    <span className="label-text font-semibold text-base">Deadline:</span>
+    
+  </label>
+  <input type="date"  {...register("deadline")}
+   className="input input-bordered w-full" />
+  
+</div>
+</div>
+
+<div className="md:flex  mb-8">
+<div className="form-control md:w-1/2 ml-6 ">
   <label className="label">
     <span className="label-text font-semibold text-lg">Options:</span>
     
@@ -105,8 +177,6 @@ const Surveyor = () => {
   
   
 </div>
-    
-   
 </div>
      
       <button type="submit" className="btn bg-purple-500 text-white text-lg">Save</button>
