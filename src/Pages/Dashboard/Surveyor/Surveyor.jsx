@@ -4,12 +4,13 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import swal from "sweetalert";
+import { ImHome3 } from "react-icons/im";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const Surveyor = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit,formState:{errors} } = useForm();
     const [yesVoted] =useState(0);
     const [noVoted] =useState(0);
     const [liked] =useState(0);
@@ -76,6 +77,7 @@ const Surveyor = () => {
   </label>
   <input type="text" placeholder="Title" {...register("title",{ required: true })}
    className="input input-bordered w-full" />
+   {errors.title&&(<h3 className="text-lg mt-3 text-red-600">Must provide a title</h3>)}
   
 </div>
       <div className="form-control md:w-1/2 ml-4 ">
@@ -85,6 +87,7 @@ const Surveyor = () => {
   </label>
   <input type="text" placeholder="Description" {...register("description",{ required: true })}
    className="input input-bordered w-full" />
+   {errors.description&&(<h3 className="text-lg mt-3 text-red-600">Must provide a description</h3>)}
   
 </div>
 </div>
@@ -94,7 +97,7 @@ const Surveyor = () => {
     <span className="label-text font-semibold text-base">Category:<span className="text-red-500 text-lg">*</span></span>
     
   </label>
-  <select defaultValue='default' {...register("category")}
+  <select defaultValue='default' {...register("category",{ required: true })}
        className="select select-bordered w-full " >
   <option disabled value='default'>Select a category</option>
   <option>Education</option>
@@ -103,6 +106,7 @@ const Surveyor = () => {
         <option >Health Care</option>
         <option >Work and Career</option>
 </select>
+{errors.category&&(<h3 className="text-lg mt-3 text-red-600">Must provide a category</h3>)}
   
 </div>
 <div className="form-control md:w-1/2 ml-4 ">
@@ -157,12 +161,13 @@ const Surveyor = () => {
 <div className="md:flex  mb-8">
 <div className="form-control md:w-1/2 ml-6 ">
   <label className="label">
-    <span className="label-text font-semibold text-lg">Options:</span>
+    <span className="label-text font-semibold text-lg">Options:<span className="text-red-500 text-lg">*</span></span>
     
   </label>
   <div className="flex items-center">
   <input type="checkbox" id='yes' value='yes' {...register("options",{ required: true })}
     />
+    
     <label className="label" htmlFor="yes">
     <span className="label-text font-semibold text-lg ml-2 mr-4">Yes</span>
     
@@ -174,6 +179,7 @@ const Surveyor = () => {
     
   </label>
   </div>
+  
   
   
 </div>

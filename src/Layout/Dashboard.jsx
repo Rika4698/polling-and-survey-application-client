@@ -6,20 +6,24 @@ import useSurveyor from "../hooks/useSurveyor";
 const Dashboard = () => {
       const [isAdmin] = useAdmin();
       const [isSurveyor] = useSurveyor();
-    //   className={({ isAdmin }) =>
-    //   isAdmin ? "flex-1 p-8 bg-blue-50" :  "flex-1 p-8 bg-blue-50" 
+    //   className={
+    //   isAdmin ? "lg:flex-1 p-8 bg-blue-50"  : isSurveyor? "lg:flex-1 p-8 bg-blue-50" :"" 
     // }
     return (
-        <div className="flex">
+        <div className=" lg:flex ">
             {/* dashboard side bar */}
-            <div className=  "w-32 lg:w-64 min-h-screen bg-blue-200">
-                <ul className=
-        "menu   text-xl text-fuchsia-600 font-semibold p-4" >
+            <div className={
+      isAdmin ? "min-w-32 min-h-44 lg:w-48 lg:min-h-screen bg-purple-200" : isSurveyor ? "min-w-32 min-h-44 lg:w-48 lg:min-h-screen bg-blue-200":"" 
+     }>
+                <div className=" ">
+                {/* <ul className=
+        "  menu-horizontal    lg:menu   text-xl text-fuchsia-600 font-semibold p-4" > */}
                     {
                         isAdmin? <>
                         
-                        <h2 className="text-3xl text-center font-serif font-bold text-purple-600 mb-2">Admin</h2>
-                    <h3 className="text-xl text-center font-mono font-semibold text-lime-600 mb-10">Dashboard</h3>
+                        <h2 className="pt-4 text-3xl text-center font-serif font-bold text-sky-600 mb-2">Admin</h2>
+                    <h3 className="text-xl text-center font-mono font-semibold text-lime-600 mb-2">Dashboard</h3>
+                    <ul className=" menu gap-2  lg:menu lg:gap-4  text-2xl lg:text-lg text-blue-600 font-semibold p-4" >
                     <li>
                         <NavLink to="/">
                            
@@ -40,13 +44,14 @@ const Dashboard = () => {
                             
                         Survey responses</NavLink>
                     </li>
-
+                   </ul>
 
                         </>
                         : isSurveyor? 
                         <>
-                         <h2 className="text-3xl text-center font-serif font-bold text-purple-600 mb-2">Surveyor</h2>
-                    <h3 className="text-xl text-center font-mono font-semibold text-lime-600 mb-10">Dashboard</h3>
+                         <h2 className=" pt-4 text-3xl text-center font-serif font-bold text-purple-600 mb-2">Surveyor</h2>
+                    <h3 className="text-xl text-center font-mono font-semibold text-lime-600 mb-2">Dashboard</h3>
+                    <ul className="menu gap-2  lg:menu lg:gap-4  text-2xl lg:text-xl text-fuchsia-600 font-semibold p-4" >
                     <li>
                         <NavLink to="/">
                            
@@ -57,22 +62,43 @@ const Dashboard = () => {
                             
                         Create Survey</NavLink>
                     </li>
+                    <li >
+                        <NavLink to="/dashboard/list">
+                            
+                         Survey List</NavLink>
+                    </li>
                     <li>
                         <NavLink to="/dashboard/list">
                             
                          Survey List</NavLink>
                     </li>
+                    <li>
+                        <NavLink to="/dashboard/list">
+                            
+                         Survey List</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/list">
+                            
+                         Survey List</NavLink>
+                    </li>
+
+                    </ul>
                         </>
                         : ''
+                       
                     }
                    
                     
                    
                     
-                </ul>
+                
+                </div>
             </div>
             {/* dashboard content */}
-            <div className=  "flex-1 p-8 bg-blue-50" 
+            <div className={
+       isAdmin ? "lg:flex-1 p-8 bg-purple-50"  : isSurveyor? "lg:flex-1 p-8 bg-blue-50" :"" 
+     } 
     >
                 <Outlet></Outlet>
             </div>

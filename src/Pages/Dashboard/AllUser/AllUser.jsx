@@ -80,10 +80,10 @@ const AllUser = () => {
         <div>
             <div className=" my-4">
                 <h2 className="text-3xl text-center text-emerald-600 font-serif font-bold">Manage  Users</h2>
-                <h2 className="text-lg   text-rose-400 font-serif font-bold">Total Users: {user.length}</h2>
+                <h2 className="text-lg   text-rose-400 font-serif font-bold pt-4">Total Users: {user.length}</h2>
             </div>
-            <div className="overflow-x-auto">
-                <table className="table table-xs   w-full ">
+            <div className="overflow-x-auto mt-8 ">
+                <table className="table table-xs  w-full  ">
                     {/* head */}
                     <thead>
                         <tr>
@@ -97,7 +97,7 @@ const AllUser = () => {
                     <tbody>
                         {
                             user.map((users, index) => <tr key={users._id}>
-                                <th className="text-base">{index + 1}</th>
+                                <th className="text-base text-pink-700 mr-2">{index + 1}</th>
                                 <td className="text-base font-medium">{users.name}</td>
                                 <td className="text-base font-medium">{users.email}</td>
                                 <td>

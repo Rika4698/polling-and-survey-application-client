@@ -13,6 +13,7 @@ import PrivateRoute from "./PrivateRoute";
 import AllUser from "../Pages/Dashboard/AllUser/AllUser";
 import AdminRoute from "./AdminRoute";
 import SurveyorRoute from "./SurveyorRoute";
+import AllSurvey from "../Pages/Dashboard/AllSurvey/AllSurvey";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -50,6 +51,10 @@ import SurveyorRoute from "./SurveyorRoute";
                 path:'surveyor',
                 element:<SurveyorRoute><Surveyor></Surveyor></SurveyorRoute>,
                
+            },
+            {
+                path:'list',
+                element:<SurveyorRoute><AllSurvey></AllSurvey></SurveyorRoute>,
             }
         ]
     }
