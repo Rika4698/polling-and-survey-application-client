@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useSurveyList from "../../../hooks/useSurveyList";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const AllSurvey = () => {
@@ -77,7 +78,8 @@ const AllSurvey = () => {
     <p>{item.description}</p>
     <div className="card-actions justify-end pt-4">
       <button className="btn bg-emerald-400 capitalize ">{item.status}</button>
-      <button className="btn btn-ghost"><FaEdit className=""></FaEdit></button>
+      <Link to={`/dashboard/updateSurvey/${item._id}`}>
+      <button className="btn btn-ghost"><FaEdit className=""></FaEdit></button></Link>
       <button onClick={()=>handleDeleteItem(item)} className="btn btn-ghost"><FaTrashAlt className="text-red-600"></FaTrashAlt></button>
     </div>
   </div>

@@ -1,38 +1,30 @@
-import {  useState } from "react";
 import { useForm } from "react-hook-form"
-import useAuth from "../../../hooks/useAuth";
+import { useLoaderData } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import useAuth from "../../../hooks/useAuth";
+import { useState } from "react";
 import swal from "sweetalert";
+
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
-const Surveyor = () => {
-    const { register, handleSubmit,reset,formState:{errors} } = useForm();
+
+const UpdateSurvey = () => {
+    const {_id,title,description,category,question1,question2,question3,deadline} = useLoaderData();
+    const { register, handleSubmit,formState:{errors} } = useForm();
+    const axiosSecure = useAxiosSecure();
+    const axiosPublic = useAxiosPublic();
     const [yesVoted] =useState(0);
     const [noVoted] =useState(0);
     const [liked] =useState(0);
     const [disliked] =useState(0);
     const {user} = useAuth();
-    
-    const axiosSecure = useAxiosSecure();
-    const axiosPublic = useAxiosPublic();
-  const onSubmit = async (data) =>{ 
-    // const formData ={
-    //     ...data, 
-    //     options:['Yes','No'],
-    //     yesVoted,
-    //     noVoted,
-    //     liked,
-    //     disliked,
-    //     status:'published',
-    //     loggedUser:user.email,
-    //     loggedUserName:user.displayName
-    // };
-    console.log(data)
-    const imageFile = {image: data.image[0]}
+    const onSubmit = async (data) =>{ 
+        console.log(data);
+        const imageFile = {image: data.image[0]}
     const res = await axiosPublic.post(image_hosting_api, imageFile,{
         headers:{
             'content-type' : 'multipart/form-data'
@@ -52,23 +44,21 @@ const Surveyor = () => {
             loggedUserName:user.displayName
         };
         console.log(formData);
-        const survey = await axiosSecure.post('/survey',formData);
+        const survey = await axiosSecure.patch(`/survey/${_id}`,formData);
         console.log(survey.data);
-        if(survey.data.insertedId){
+        if(survey.data.modifiedCount>0){
             swal({
                 title: 'okay!',
-                text: 'Survey Added Successfully ',
+                text: 'Survey updated Successfully ',
                 icon:'success',
             })
-            reset();
         }
     }
     console.log(res.data);
-  };
-     
-      return (
-          <div>
-            <h2 className="text-5xl font-extrabold text-center text-green-400 underline  mb-10">Create Survey</h2>
+    }
+    return (
+        <div>
+           <h2 className="text-5xl font-extrabold text-center text-pink-400 underline  mb-10">Update Survey</h2>
              <form onSubmit={handleSubmit(onSubmit)}>
       <div className="md:flex mb-8">
       <div className="form-control md:w-1/2 ">
@@ -76,7 +66,7 @@ const Surveyor = () => {
     <span className="label-text font-semibold text-base">Title:  <span className="text-red-500 text-lg">*</span></span>
     
   </label>
-  <input type="text" placeholder="Title" {...register("title",{ required: true })}
+  <input type="text" defaultValue={title} placeholder="Title" {...register("title",{ required: true })}
    className="input input-bordered w-full" />
    {errors.title&&(<h3 className="text-lg mt-3 text-red-600">Must provide a title</h3>)}
   
@@ -86,7 +76,7 @@ const Surveyor = () => {
     <span className="label-text font-semibold text-base">Description:<span className="text-red-500 text-lg">*</span></span>
     
   </label>
-  <input type="text" placeholder="Description" {...register("description",{ required: true })}
+  <input type="text" defaultValue={description} placeholder="Description" {...register("description",{ required: true })}
    className="input input-bordered w-full" />
    {errors.description&&(<h3 className="text-lg mt-3 text-red-600">Must provide a description</h3>)}
   
@@ -98,9 +88,9 @@ const Surveyor = () => {
     <span className="label-text font-semibold text-base">Category:<span className="text-red-500 text-lg">*</span></span>
     
   </label>
-  <select defaultValue='default' {...register("category",{ required: true })}
+  <select  {...register("category",{ required: true })}
        className="select select-bordered w-full " >
-  <option disabled value='default'>Select a category</option>
+  <option disabled defaultValue={category}>Select a category</option>
   <option>Education</option>
         <option >Technology</option>
         <option >Marketing</option>
@@ -115,8 +105,7 @@ const Surveyor = () => {
     <span className="label-text font-semibold text-base">Category Image:</span>
     
   </label>
-     <input {...register("image")} type="file" className="file-input file-input-primary w-full max-w-xs" />
-     
+     <input {...register("image")} type="file"   className="file-input file-input-primary w-full max-w-xs" />
      </div>
 </div>
 <div className="md:flex mb-8">
@@ -125,7 +114,7 @@ const Surveyor = () => {
     <span className="label-text font-semibold text-base">Question 1:</span>
     
   </label>
-  <input type="text" placeholder="Question" {...register("question1")}
+  <input type="text" defaultValue={question1} placeholder="Question" {...register("question1")}
    className="input input-bordered w-full" />
   
 </div>
@@ -134,7 +123,7 @@ const Surveyor = () => {
     <span className="label-text font-semibold text-base">Question 2:</span>
     
   </label>
-  <input type="text" placeholder="Question" {...register("question2")}
+  <input type="text"defaultValue={question2} placeholder="Question" {...register("question2")}
    className="input input-bordered w-full" />
   
 </div>
@@ -145,7 +134,7 @@ const Surveyor = () => {
     <span className="label-text font-semibold text-base">Question 3:</span>
     
   </label>
-  <input type="text" placeholder="Question" {...register("question3")}
+  <input type="text" defaultValue={question3} placeholder="Question" {...register("question3")}
    className="input input-bordered w-full" />
   
 </div>
@@ -154,7 +143,7 @@ const Surveyor = () => {
     <span className="label-text font-semibold text-base">Deadline:</span>
     
   </label>
-  <input type="date"  {...register("deadline")}
+  <input type="date" defaultValue={deadline} {...register("deadline")}
    className="input input-bordered w-full" />
   
 </div>
@@ -189,9 +178,8 @@ const Surveyor = () => {
      
       <button type="submit" className="btn bg-purple-500 text-white text-lg">Save</button>
     </form>
-              
-          </div>
-      );
-  };
+        </div>
+    );
+};
 
-export default Surveyor;
+export default UpdateSurvey;
