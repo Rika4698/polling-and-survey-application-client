@@ -27,18 +27,17 @@ const Navbar = () => {
                
                     
                      {
-                        isAdmin &&  <li><NavLink to="/dashboard/user"
+                        isAdmin?<><li><NavLink to="/dashboard/user"
                         className={({ isActive, isPending }) =>
                           isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
-                        }>Admin Dashboard</NavLink></li>
+                        }>Admin Dashboard</NavLink></li> </>:''
                      }
 
                    {
-                    isSurveyor && <li><NavLink to="/dashboard/surveyor"
+                    isSurveyor?<> <li><NavLink to="/dashboard/surveyor"
                     className={({ isActive, isPending }) =>
                       isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
-                    }>Surveyor Dashboard</NavLink></li> 
-                   }
+                    }>Surveyor Dashboard</NavLink></li> </> :''                   }
                     
                     
                     

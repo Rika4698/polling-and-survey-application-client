@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -11,6 +12,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 const Surveyor = () => {
     const { register, handleSubmit,reset,formState:{errors} } = useForm();
+    const navigate = useNavigate();
     const [yesVoted] =useState(0);
     const [noVoted] =useState(0);
     const [liked] =useState(0);
@@ -61,6 +63,7 @@ const Surveyor = () => {
                 icon:'success',
             })
             reset();
+            navigate(location?.state?location.state :"/dashboard/list" )
         }
     }
     console.log(res.data);

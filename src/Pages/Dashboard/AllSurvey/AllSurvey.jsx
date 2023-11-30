@@ -4,12 +4,13 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useSurveyList from "../../../hooks/useSurveyList";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 
 const AllSurvey = () => {
      const{user}=useAuth();
      const userEmail = user?.email;
+    
      const axiosSecure = useAxiosSecure();
     const [survey, , refetch] = useSurveyList();
     const[surveys,setSurveys] = useState([]);

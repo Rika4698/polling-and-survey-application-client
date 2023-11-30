@@ -22,6 +22,9 @@ const UpdateSurvey = () => {
     const [liked] =useState(0);
     const [disliked] =useState(0);
     const {user} = useAuth();
+
+
+
     const onSubmit = async (data) =>{ 
         console.log(data);
         const imageFile = {image: data.image[0]}
@@ -44,7 +47,7 @@ const UpdateSurvey = () => {
             loggedUserName:user.displayName
         };
         console.log(formData);
-        const survey = await axiosSecure.patch(`/survey/${_id}`,formData);
+        const survey = await axiosSecure.put(`/survey/${_id}`,formData);
         console.log(survey.data);
         if(survey.data.modifiedCount>0){
             swal({
@@ -176,7 +179,7 @@ const UpdateSurvey = () => {
 </div>
 </div>
      
-      <button type="submit" className="btn bg-purple-500 text-white text-lg">Save</button>
+      <button type="submit" className="btn bg-lime-500 text-white text-lg">Update</button>
     </form>
         </div>
     );

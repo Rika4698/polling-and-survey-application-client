@@ -15,6 +15,7 @@ import AdminRoute from "./AdminRoute";
 import SurveyorRoute from "./SurveyorRoute";
 import AllSurvey from "../Pages/Dashboard/AllSurvey/AllSurvey";
 import UpdateSurvey from "../Pages/Dashboard/UpdateSurvey/UpdateSurvey";
+import AdminSurvey from "../Pages/Dashboard/AdminSurvey/AdminSurvey";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -47,6 +48,10 @@ import UpdateSurvey from "../Pages/Dashboard/UpdateSurvey/UpdateSurvey";
             {
                 path:'user',
                 element:<AdminRoute><AllUser></AllUser></AdminRoute>,
+            },
+            {
+                path:'survey',
+                element:<AdminRoute><AdminSurvey></AdminSurvey></AdminRoute>,
             },
             {
                 path:'surveyor',
