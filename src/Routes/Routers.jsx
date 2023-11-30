@@ -17,6 +17,7 @@ import AllSurvey from "../Pages/Dashboard/AllSurvey/AllSurvey";
 import UpdateSurvey from "../Pages/Dashboard/UpdateSurvey/UpdateSurvey";
 import AdminSurvey from "../Pages/Dashboard/AdminSurvey/AdminSurvey";
 import AdminFeedback from "../Pages/Dashboard/AdminFeedback/AdminFeedback";
+import Contact from "../Pages/Contact/Contact";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -27,10 +28,10 @@ import AdminFeedback from "../Pages/Dashboard/AdminFeedback/AdminFeedback";
             path:'/',
             element:<Home></Home>,
         },
-    //   {
-    //     path:'/menu',
-    //     element:<Menu></Menu>,
-    //   },
+      {
+        path:'/contact',
+        element:<Contact></Contact>,
+      },
       {
         path:'/login',
         element:<Login></Login>,
