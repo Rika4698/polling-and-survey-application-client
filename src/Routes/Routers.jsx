@@ -16,6 +16,7 @@ import SurveyorRoute from "./SurveyorRoute";
 import AllSurvey from "../Pages/Dashboard/AllSurvey/AllSurvey";
 import UpdateSurvey from "../Pages/Dashboard/UpdateSurvey/UpdateSurvey";
 import AdminSurvey from "../Pages/Dashboard/AdminSurvey/AdminSurvey";
+import AdminFeedback from "../Pages/Dashboard/AdminFeedback/AdminFeedback";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -66,6 +67,11 @@ import AdminSurvey from "../Pages/Dashboard/AdminSurvey/AdminSurvey";
                 path:'updateSurvey/:id',
                 element:<SurveyorRoute><UpdateSurvey></UpdateSurvey></SurveyorRoute>,
                 loader:({params})=>fetch(`http://localhost:5000/survey/${params.id}`),
+            },
+            {
+               path:'feedback',
+               element:<SurveyorRoute><AdminFeedback></AdminFeedback></SurveyorRoute>,
+              
             }
         ]
     }

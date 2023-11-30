@@ -62,7 +62,7 @@ const AllSurvey = () => {
             <h2 className="text-center text-violet-600 font-serif text-4xl font-semibold">All Survey</h2>
             <div className="mt-4">
                 {
-                     surveys.map((item, index) => <tr key={item._id}>
+                     surveys.map((item, index) => <div key={item._id}>
                         <div>
                         <div className="mt-6">
                         <h3 className="font-semibold text-lg">{item.timestamp}</h3>
@@ -73,15 +73,21 @@ const AllSurvey = () => {
                      </td>
                      <td>
 
-                     <div className="card w-[200px] md:w-[400px] lg:w-[600px] bg-orange-200 text-black font-serif mt-6 mx-8">
+                     <div className="card w-[200px] md:w-[400px] lg:w-[600px] bg-orange-100 text-black font-serif mt-6 mx-8">
   <div className="card-body items-center text-center">
     <h2 className="card-title text-green-700">{item.title}</h2>
-    <p>{item.description}</p>
+    <h3>{item.description}</h3>
+    <h3 className="text-base text-pink-500 font-semibold mt-2">Questions:</h3>
+    <div className="gap-2">
+    <h3 className="mt-2 font-medium text-base">1.  {item.question1}</h3>
+    <h3 className="mt-2 font-medium text-base">2. {item.question2}</h3>
+    <h3 className="mt-2 font-medium text-base">3. {item.question3}</h3>
+    </div>
     <div className="card-actions justify-end pt-4">
-      <button className="btn bg-emerald-400 capitalize ">{item.status}</button>
+      <button className={`btn  capitalize text-white ${item.status=='published'?'bg-emerald-600':'bg-red-600'} `}>{item.status}</button>
       <Link to={`/dashboard/updateSurvey/${item._id}`}>
-      <button className="btn btn-ghost"><FaEdit className=""></FaEdit></button></Link>
-      <button onClick={()=>handleDeleteItem(item)} className="btn btn-ghost"><FaTrashAlt className="text-red-600"></FaTrashAlt></button>
+      <button className="btn btn-ghost"><FaEdit className="text-lg"></FaEdit></button></Link>
+      <button onClick={()=>handleDeleteItem(item)} className="btn btn-ghost"><FaTrashAlt className="text-red-600 text-lg"></FaTrashAlt></button>
     </div>
   </div>
 </div>
@@ -89,7 +95,7 @@ const AllSurvey = () => {
 
                     </div>
                     </div>
-                     </tr>)
+                     </div>)
                 }
             </div>
         </div>

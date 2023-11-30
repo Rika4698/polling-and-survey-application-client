@@ -56,7 +56,7 @@ const Dashboard = () => {
                         <>
                          <h2 className=" pt-4 text-3xl text-center font-serif font-bold text-purple-600 mb-2">Surveyor</h2>
                     <h3 className="text-xl text-center font-mono font-semibold text-lime-600 mb-2">Dashboard</h3>
-                    <ul className="menu gap-2  lg:menu lg:gap-4  text-2xl lg:text-xl text-fuchsia-600 font-semibold p-4" >
+                    <ul className="menu gap-2  lg:menu lg:gap-4  text-2xl lg:text-base text-fuchsia-600 font-bold font-serif p-4" >
                     <li>
                         <NavLink to="/">
                            
@@ -72,7 +72,12 @@ const Dashboard = () => {
                             
                          Survey List</NavLink>
                     </li>
-                    <li>
+                    <li >
+                        <NavLink to="/dashboard/feedback">
+                            
+                         Admin Feedback</NavLink>
+                    </li>
+                    {/* <li>
                         <NavLink to="/dashboard/list">
                             
                          Survey List</NavLink>
@@ -81,12 +86,7 @@ const Dashboard = () => {
                         <NavLink to="/dashboard/list">
                             
                          Survey List</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/dashboard/list">
-                            
-                         Survey List</NavLink>
-                    </li>
+                    </li> */}
 
                     </ul>
                         </>

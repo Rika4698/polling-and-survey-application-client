@@ -12,6 +12,8 @@ const AdminSurvey = () => {
     const handlePublish = item =>{
         console.log(item);
         const status ={ status:'published'};
+        if(item.status=='unpublished')
+        {
         axiosSecure.patch(`/survey/${item._id}`,status)
         .then(res =>{
             console.log(res.data)
@@ -26,11 +28,21 @@ const AdminSurvey = () => {
                   });
                   refetch();
             }
-        })
+         
+            
+        })}else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Opps!',
+                text: 'Already Exist.',
+            })
+        }
     };
 
     const handleUnpublished = item =>{
         const survey ={ status:'unpublished', adminFeedback: unpublishedMessage,};
+        if(item.status =='published')
+        {
         axiosSecure.patch(`/survey/${item._id}`,survey)
         .then(res =>{
             console.log(res.data)
@@ -39,13 +51,19 @@ const AdminSurvey = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: 'survey is published now.',
+                    title: 'survey is unpublished now.',
                     showConfirmButton: false,
                     timer: 1500
                   });
                   refetch();
             }
-        })
+        })} else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Opps!',
+                text: 'Already Exist.',
+            })
+        }
     };
     return (
         <div>
