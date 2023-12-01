@@ -2,10 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import { FaTrash} from "react-icons/fa";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+// import { useLoaderData } from "react-router-dom";
+// import { useEffect } from "react";
+// import useAuth from "../../../hooks/useAuth";
 
 const AllUser = () => {
+    // const{user}=useAuth();
+    // const paymentUser = useLoaderData();
     const axiosSecure = useAxiosSecure();
-    const { data: user = [], refetch} = useQuery({
+    const { data: allUser = [], refetch} = useQuery({
         queryKey: ['user'],
         queryFn: async () => {
             const res = await axiosSecure.get('/user'
@@ -14,6 +19,37 @@ const AllUser = () => {
             return res.data;
         }
     })
+
+    //  const findPro = paymentUser.filter((item)=>item.email==user.email);
+    //  const pay = findPro[0]?.email;
+    //  console.log(findPro);
+    //  const findUser = allUser.filter((item)=>item.email==user.email);
+    //  const pro =findUser[0]?.email;
+    //  const id =findUser[0]?._id;
+    //  console.log(id);
+
+    //  if(pay==pro){
+    //     axiosSecure.patch(`/user/pro/${id}`)
+    //     .then(res =>{
+    //         console.log(res.data)
+    //         if(res.data.modifiedCount > 0){
+    //             refetch();
+    //             Swal.fire({
+    //                 position: "top-end",
+    //                 icon: "success",
+    //                 title: "Now you are a pro member!",
+    //                 showConfirmButton: false,
+    //                 timer: 1500
+    //               });
+    //         }
+    //     })
+    //  }
+    
+    // useEffect(() => {
+        
+    //     const findSurvey = survey.filter((item) => item.loggedUser == userEmail);
+    //   console.log(findSurvey);
+    // },[userEmail,survey]);
    
     const handleMakeAdmin = users =>{
         axiosSecure.patch(`/user/admin/${users._id}`)
@@ -80,7 +116,7 @@ const AllUser = () => {
         <div>
             <div className=" my-4">
                 <h2 className="text-3xl text-center text-emerald-600 font-serif font-bold">Manage  Users</h2>
-                <h2 className="text-lg   text-rose-400 font-serif font-bold pt-4">Total Users: {user.length}</h2>
+                <h2 className="text-lg   text-rose-400 font-serif font-bold pt-4">Total Users: {allUser.length}</h2>
             </div>
             <div className="overflow-x-auto mt-8 ">
                 <table className="table table-xs  w-full  ">
@@ -96,10 +132,10 @@ const AllUser = () => {
                     </thead>
                     <tbody>
                         {
-                            user.map((users, index) => <tr key={users._id}>
+                            allUser.map((users, index) => <tr key={users._id}>
                                 <th className="text-base text-pink-700 mr-2">{index + 1}</th>
                                 <td className="text-base font-medium">{users.name}</td>
-                                <td className="text-base font-medium">{users.email}</td>
+                                <td className="text-base font-medium">{users.email}{users.role=='pro-user'? <h3 className="badge badge-secondary ml-4">pro</h3>:""}</td>
                                 <td>
                                     { users.role === 'admin' ?(<div className="flex gap-6">
                                         <h3 className="mr-2 text-2xl text-green-600 font-serif font-semibold"> Admin</h3>

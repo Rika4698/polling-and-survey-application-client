@@ -39,6 +39,10 @@ const Navbar = () => {
                       isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
                     }>Surveyor Dashboard</NavLink></li> </> :''}
 
+                    <li><NavLink to="/pro"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
+                }>Pro-User</NavLink></li>
                     <li><NavLink to="/contact"
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"

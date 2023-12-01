@@ -11,7 +11,7 @@ const useAxiosSecure = () => {
     const{logOut} = useContext(AuthContext);
     axiosSecure.interceptors.request.use(function(config){
         const token = localStorage.getItem('access-token')
-       console.log('request stopped by interceptors',token)
+    //    console.log('request stopped by interceptors',token)
        config.headers.authorization = `Bearer ${token}`;
         return config;
     }, function(error){
@@ -22,14 +22,14 @@ const useAxiosSecure = () => {
         return response;
     }, (error) =>{
         const status = error.response.status;
-        console.log('status error in the interceptor', status)
+        console.log('status error in the interceptor', status);
         return Promise.reject(error);
     });
     axiosSecure.interceptors.response.use(function(response){
         return response;
     }, async (error) =>{
         const status = error.response.status;
-        console.log('status error in the interceptor', status);
+        // console.log('status error in the interceptor', status);
         if(status === 401 || status === 403){
             await logOut();
             navigate('/login')

@@ -18,6 +18,8 @@ import UpdateSurvey from "../Pages/Dashboard/UpdateSurvey/UpdateSurvey";
 import AdminSurvey from "../Pages/Dashboard/AdminSurvey/AdminSurvey";
 import AdminFeedback from "../Pages/Dashboard/AdminFeedback/AdminFeedback";
 import Contact from "../Pages/Contact/Contact";
+import ProUser from "../Pages/ProUser/ProUser";
+import Payment from "../Pages/ProUser/Payment";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -27,6 +29,15 @@ import Contact from "../Pages/Contact/Contact";
         {
             path:'/',
             element:<Home></Home>,
+        },
+        {
+          path:'/pro',
+          element:<ProUser></ProUser>,
+        },
+        {
+          path:'/payment',
+          element:<PrivateRoute><Payment></Payment></PrivateRoute>,
+          loader:()=>fetch("http://localhost:5000/user"),
         },
       {
         path:'/contact',
@@ -50,6 +61,7 @@ import Contact from "../Pages/Contact/Contact";
             {
                 path:'user',
                 element:<AdminRoute><AllUser></AllUser></AdminRoute>,
+                
             },
             {
                 path:'survey',
