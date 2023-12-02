@@ -43,6 +43,10 @@ const Navbar = () => {
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
                 }>Pro-User</NavLink></li>
+                    <li><NavLink to="/about"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
+                }>About Us</NavLink></li>
                     <li><NavLink to="/contact"
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
@@ -72,7 +76,7 @@ const Navbar = () => {
           </div>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="flex gap-8 ">
+    <ul className="flex gap-6 ">
     {navOptions}
     </ul>
   </div>

@@ -2,11 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import { FaTrash} from "react-icons/fa";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { useState } from "react";
 // import { useLoaderData } from "react-router-dom";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 // import useAuth from "../../../hooks/useAuth";
 
 const AllUser = () => {
+    const [selectedRole, setSelectedRole] = useState('');
+    const [filteredUsers, setFilteredUsers] = useState([]);
     // const{user}=useAuth();
     // const paymentUser = useLoaderData();
     const axiosSecure = useAxiosSecure();
@@ -20,13 +23,24 @@ const AllUser = () => {
         }
     })
 
-    //  const findPro = paymentUser.filter((item)=>item.email==user.email);
-    //  const pay = findPro[0]?.email;
-    //  console.log(findPro);
-    //  const findUser = allUser.filter((item)=>item.email==user.email);
-    //  const pro =findUser[0]?.email;
-    //  const id =findUser[0]?._id;
-    //  console.log(id);
+    useEffect(() => {
+        if (selectedRole === 'pro-user') {
+            const filtered = allUser.filter(user => user.role === 'pro-user');
+            setFilteredUsers(filtered);
+          } else if (selectedRole === 'surveyor') {
+            const filtered = allUser.filter(user => user.role === 'surveyor');
+            setFilteredUsers(filtered);
+          } else if (selectedRole === 'admin') {
+            const filtered = allUser.filter(user => user.role === 'admin');
+            setFilteredUsers(filtered);
+          } else if (selectedRole === 'normal') {
+            const filtered = allUser.filter(user => !user.role); // Users without a role
+            setFilteredUsers(filtered);
+          } else {
+            setFilteredUsers(allUser);
+          }
+      }, [selectedRole, allUser]);
+    
 
     //  if(pay==pro){
     //     axiosSecure.patch(`/user/pro/${id}`)
@@ -118,6 +132,17 @@ const AllUser = () => {
                 <h2 className="text-3xl text-center text-emerald-600 font-serif font-bold">Manage  Users</h2>
                 <h2 className="text-lg   text-rose-400 font-serif font-bold pt-4">Total Users: {allUser.length}</h2>
             </div>
+           
+                <div className="">
+                <select value={selectedRole} onChange={(e) => setSelectedRole(e.target.value)} className="w-24 h-8 bg-pink-200 text-center text-lg font-semibold text-sky-900 "   >
+                  <option value="all">All Users</option>
+                  <option value="pro-user">Pro-User</option>
+                  <option value="normal">User</option>
+                  <option value="surveyor">Surveyors</option>
+                  <option value="admin">Admin</option>
+                </select>
+              </div>
+            
             <div className="overflow-x-auto mt-8 ">
                 <table className="table table-xs  w-full  ">
                     {/* head */}
@@ -132,7 +157,8 @@ const AllUser = () => {
                     </thead>
                     <tbody>
                         {
-                            allUser.map((users, index) => <tr key={users._id}>
+                            filteredUsers.map((users, index) => <tr key={users._id}>
+                                
                                 <th className="text-base text-pink-700 mr-2">{index + 1}</th>
                                 <td className="text-base font-medium">{users.name}</td>
                                 <td className="text-base font-medium">{users.email}{users.role=='pro-user'? <h3 className="badge badge-secondary ml-4">pro</h3>:""}</td>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Banner = () => {
@@ -10,7 +11,9 @@ const Banner = () => {
       <h1 className="mb-5 text-6xl font-bold text-center text-purple-400">Welcome to our Survey Swift</h1>
       <p className="mb-5 text-orange-300"> Our platform provides an interactive way to create and conduct surveys, gather valuable insights,
         and engage with your audience.</p>
+        <Link to="/about">
       <button className="btn bg-cyan-400 font-bold">Explore</button>
+      </Link>
     </div>
   </div>
 </div> 

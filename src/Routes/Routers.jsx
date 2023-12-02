@@ -21,6 +21,7 @@ import Contact from "../Pages/Contact/Contact";
 import ProUser from "../Pages/ProUser/ProUser";
 import Payment from "../Pages/ProUser/Payment";
 import AllPayment from "../Pages/Dashboard/AllPayment/AllPayment";
+import AboutUs from "../Pages/About Us/About Us";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -40,6 +41,10 @@ import AllPayment from "../Pages/Dashboard/AllPayment/AllPayment";
           element:<PrivateRoute><Payment></Payment></PrivateRoute>,
           
         },
+      {
+        path:'/about',
+        element:<AboutUs></AboutUs>,
+      },
       {
         path:'/contact',
         element:<Contact></Contact>,
