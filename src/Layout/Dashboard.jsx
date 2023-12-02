@@ -40,9 +40,9 @@ const Dashboard = () => {
                         All Survey</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/dashboard/payment">
+                        <NavLink to="/dashboard/allPayment">
                             
-                        Payments</NavLink>
+                       All Payments</NavLink>
                     </li>
                     <li>
                         <NavLink to="/dashboard/response">

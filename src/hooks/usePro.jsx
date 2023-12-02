@@ -12,7 +12,7 @@ const usePro = () => {
         queryFn: async () => {
             const res = await axiosSecure.get(`/user/pro/${user.email}`);
             console.log(res.data);
-            return res.data?.pro;
+            return res.data?.proUser;
         }
     })
     return [isPro,isProLoading]

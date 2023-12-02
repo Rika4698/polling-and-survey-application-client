@@ -1,42 +1,43 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
-import { useLoaderData } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
-import { useEffect, useState } from "react";
+// import { useLoaderData } from "react-router-dom";
+// import useAuth from "../../hooks/useAuth";
+// import { useEffect, useState } from "react";
 
 
 
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
 const Payment = () => {
-    const data = useLoaderData();
-    const{user}=useAuth();
-    const userEmail = user.email;
+    // const data = useLoaderData();
+    // const{user}=useAuth();
+    // const userEmail = user.email;
     
-    const[check, setCheck]= useState([]);
+    // const[check, setCheck]= useState([]);
 
-    useEffect(() => {
+    // useEffect(() => {
         
-            const findSurvey = data.filter((item) => item.email == userEmail);
-          console.log(findSurvey);
-          setCheck(findSurvey);
-        },[userEmail,data]);
+    //         const findSurvey = data.filter((item) => item.email == userEmail);
+    //       console.log(findSurvey);
+    //       setCheck(findSurvey);
+    //     },[userEmail,data]);
 
-    console.log(user);
+    // console.log(user);
     return (
         <div>
             <div>
-                {check.map((item)=>
-            <Elements key={item._id} stripe={stripePromise} >
+                {/* {check.map((item)=> */}
+            <Elements  stripe={stripePromise} >
                 <h3 className="text-5xl text-lime-600 text-center underline font-bold pt-8">Payment</h3>
               
              
-                <CheckoutForm item={item} ></CheckoutForm> 
+                <CheckoutForm  ></CheckoutForm> 
               
               
               {/* <CheckoutForm></CheckoutForm> */}
-             </Elements>  )}
+             </Elements>  
+            {/* //  )} */}
 
             </div>
         </div>

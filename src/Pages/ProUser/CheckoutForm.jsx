@@ -5,13 +5,19 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import moment from 'moment';
+import useAdmin from "../../hooks/useAdmin";
+import usePro from "../../hooks/usePro";
+import useSurveyor from "../../hooks/useSurveyor";
 // import useUsers from "../../hooks/useUsers";
 
 
 
-const CheckoutForm = ({item}) => {
+const CheckoutForm = () => {
   // const{_id,email}= item ||{};
-
+  const[isAdmin] = useAdmin();
+  const[isSurveyor] = useSurveyor();
+  const[isPro] = usePro();
+  const isDisabled = isAdmin|| isSurveyor || isPro;
   // console.log(email);
     const[error,setError] = useState('');
     const[clientSecret,setClientSecret] = useState('');
@@ -20,7 +26,7 @@ const CheckoutForm = ({item}) => {
     // const find = email=== user.email;
     // console.log(find);
     // const[users,refetch] = useUsers();
-    // const userEmail = user.email;
+    const userEmail = user.email;
     // console.log(userEmail);
     const stripe = useStripe();
   const elements = useElements();
@@ -115,10 +121,10 @@ const CheckoutForm = ({item}) => {
     };
 
 
-    const handleMakePro = item =>{
+    const handleMakePro = userEmail =>{
       // const findUser = email.filter((item)=> console.log(item));
       // console.log(findUser);
-      axiosSecure.patch(`/user/pro/${item._id}`)
+      axiosSecure.patch(`/user/pro/${userEmail}`)
       .then(res =>{
           console.log(res.data)
           if(res.data.modifiedCount > 0){
@@ -152,9 +158,27 @@ const CheckoutForm = ({item}) => {
           },
         }}
       />
-      <button onClick={()=>handleMakePro(item)} className="btn bg-blue-500 text-white ml-8 mt-14" disabled={!stripe||!clientSecret} type="submit" >
+
+     {
+        isDisabled ? (
+          <div className=" btn-disabled cursor-not-allowed text-center  text-xl rounded-lg bg-slate-400 w-44 h-10 text-white ml-8 mt-14  ">
+           
+      <button disabled className="mt-1">Pay</button>
+     
+            {/* <h3 className="text-base text-red-500 mt-6">job’s deadline is crossed </h3> */}
+          </div>
+        ) : (
+         
+          <button onClick={()=>handleMakePro(userEmail)} className="btn bg-blue-500 text-white ml-8 mt-14 w-44 h-10 text-xl" disabled={!stripe||!clientSecret} type="submit" >
         Pay
       </button>
+      
+         
+        )
+      }
+      {/* <button onClick={()=>handleMakePro(userEmail)} className="btn bg-blue-500 text-white ml-8 mt-14" disabled={!stripe||!clientSecret} type="submit" >
+        Pay
+      </button> */}
       <p className="text-red-600 ml-8 my-4">{error}</p>
       {transactionId && <p className="text-green-600 mx-6 mb-4">Your transaction id: {transactionId}</p> }
             </form>
