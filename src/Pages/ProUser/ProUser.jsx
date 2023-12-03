@@ -14,7 +14,7 @@ const ProUser = () => {
     return (
         <div>
          
-            <h3 className="text-4xl text-center text-green-500 font-bold mt-4">Become a  pro-user</h3>
+            <h3 className="text-4xl text-center font-serif text-green-500 font-bold mt-4">Become a  pro-user</h3>
             <div className="grid grid-cols-1 mt-14 md:grid-cols-2 gap-8 my-6 lg:ml-8">
             <div className="card  ml-6 w-[320px] min-h-[400px] md:w-[360px] lg:w-[420px] bg-gradient-to-r from-pink-300 to-blue-600 shadow-xl">
   <div className="card-body items-center text-center">

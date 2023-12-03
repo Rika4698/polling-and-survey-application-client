@@ -22,6 +22,7 @@ import ProUser from "../Pages/ProUser/ProUser";
 import Payment from "../Pages/ProUser/Payment";
 import AllPayment from "../Pages/Dashboard/AllPayment/AllPayment";
 import AboutUs from "../Pages/About Us/About Us";
+import Surveys from "../Pages/Surveys/Surveys";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -31,6 +32,10 @@ import AboutUs from "../Pages/About Us/About Us";
         {
             path:'/',
             element:<Home></Home>,
+        },
+        {
+            path:'/allSurvey',
+            element:<Surveys></Surveys>,
         },
         {
           path:'/pro',

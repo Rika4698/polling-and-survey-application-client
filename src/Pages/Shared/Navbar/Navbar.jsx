@@ -22,34 +22,38 @@ const Navbar = () => {
     const navOptions=<>
   <li><NavLink to="/"
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
+                  isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base font-serif " : "font-semibold text-slate-800 text-base font-serif "
                 }>Home</NavLink></li>
                
                     
                      {
                         isAdmin?<><li><NavLink to="/dashboard/user"
                         className={({ isActive, isPending }) =>
-                          isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
+                          isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base font-serif " : "font-semibold text-slate-800 text-base font-serif "
                         }>Admin Dashboard</NavLink></li> </>:''
                      }
 
                    {
                     isSurveyor?<> <li><NavLink to="/dashboard/surveyor"
                     className={({ isActive, isPending }) =>
-                      isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
+                      isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base font-serif " : "font-semibold text-slate-800 text-base font-serif "
                     }>Surveyor Dashboard</NavLink></li> </> :''}
 
+                    <li><NavLink to="/allSurvey"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base font-serif " : "font-semibold text-slate-800 text-base font-serif "
+                }>Surveys</NavLink></li>
                     <li><NavLink to="/pro"
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
+                  isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base font-serif " : "font-semibold text-slate-800 text-base font-serif "
                 }>Pro-User</NavLink></li>
                     <li><NavLink to="/about"
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
+                  isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base font-serif " : "font-semibold text-slate-800 text-base font-serif "
                 }>About Us</NavLink></li>
                     <li><NavLink to="/contact"
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base uppercase" : "font-semibold text-slate-800 text-base uppercase"
+                  isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-base font-serif " : "font-semibold text-slate-800 text-base font-serif "
                 }>Contact Us</NavLink></li>
                     
                     

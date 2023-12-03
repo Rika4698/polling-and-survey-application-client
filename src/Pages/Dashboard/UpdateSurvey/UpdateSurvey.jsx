@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form"
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAuth from "../../../hooks/useAuth";
@@ -15,10 +15,12 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 const UpdateSurvey = () => {
     const {_id,title,description,category,question1,question2,question3,deadline} = useLoaderData();
     const { register, handleSubmit,formState:{errors} } = useForm();
+    const navigate = useNavigate();
     const axiosSecure = useAxiosSecure();
     const axiosPublic = useAxiosPublic();
     const [yesVoted] =useState(0);
     const [noVoted] =useState(0);
+    const [totalVote] = useState(0);
     const [liked] =useState(0);
     const [disliked] =useState(0);
     const {user} = useAuth();
@@ -40,6 +42,7 @@ const UpdateSurvey = () => {
             options:['Yes','No'],
             yesVoted,
             noVoted,
+            totalVote,
             liked,
             disliked,
             status:'published',
@@ -56,6 +59,7 @@ const UpdateSurvey = () => {
                 icon:'success',
             })
         }
+        navigate(location?.state?location.state :"/dashboard/list" )
     }
     console.log(res.data);
     }
@@ -91,7 +95,7 @@ const UpdateSurvey = () => {
     <span className="label-text font-semibold text-base">Category:<span className="text-red-500 text-lg">*</span></span>
     
   </label>
-  <select  {...register("category",{ required: true })}
+  <select defaultValue={category} {...register("category",{ required: true })}
        className="select select-bordered w-full " >
   <option disabled defaultValue={category}>Select a category</option>
   <option>Education</option>
@@ -152,7 +156,7 @@ const UpdateSurvey = () => {
 </div>
 </div>
 
-<div className="md:flex  mb-8">
+{/* <div className="md:flex  mb-8">
 <div className="form-control md:w-1/2 ml-6 ">
   <label className="label">
     <span className="label-text font-semibold text-lg">Options:<span className="text-red-500 text-lg">*</span></span>
@@ -177,7 +181,7 @@ const UpdateSurvey = () => {
   
   
 </div>
-</div>
+</div> */}
      
       <button type="submit" className="btn bg-lime-500 text-white text-lg">Update</button>
     </form>

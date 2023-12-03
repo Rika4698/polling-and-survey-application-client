@@ -3,7 +3,7 @@
 const Contact = () => {
     return (
         <div className=" bg-lime-100">
-        <h1 className="p-8 text-center text-5xl font-bold text-blue-600 underline">Contact Us</h1>
+        <h1 className="p-8 text-center font-serif text-5xl font-bold text-blue-600 underline">Contact Us</h1>
        <div className="grid-cols-1 lg:flex justify-between mx-8">
        <div>
        <h1 className="py-4 text-center text-2xl font-bold text-purple-500">Call us :</h1>

@@ -15,6 +15,7 @@ const Surveyor = () => {
     const navigate = useNavigate();
     const [yesVoted] =useState(0);
     const [noVoted] =useState(0);
+    const [totalVote] = useState(0);
     const [liked] =useState(0);
     const [disliked] =useState(0);
     const {user} = useAuth();
@@ -47,6 +48,7 @@ const Surveyor = () => {
             options:['Yes','No'],
             yesVoted,
             noVoted,
+            totalVote,
             liked,
             disliked,
             status:'published',
@@ -163,7 +165,7 @@ const Surveyor = () => {
 </div>
 </div>
 
-<div className="md:flex  mb-8">
+{/* <div className="md:flex  mb-8">
 <div className="form-control md:w-1/2 ml-6 ">
   <label className="label">
     <span className="label-text font-semibold text-lg">Options:<span className="text-red-500 text-lg">*</span></span>
@@ -188,7 +190,7 @@ const Surveyor = () => {
   
   
 </div>
-</div>
+</div> */}
      
       <button type="submit" className="btn bg-purple-500 text-white text-lg">Save</button>
     </form>
