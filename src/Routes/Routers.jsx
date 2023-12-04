@@ -23,6 +23,10 @@ import Payment from "../Pages/ProUser/Payment";
 import AllPayment from "../Pages/Dashboard/AllPayment/AllPayment";
 import AboutUs from "../Pages/About Us/About Us";
 import Surveys from "../Pages/Surveys/Surveys";
+import SurveyDetails from "../Pages/SurveyDetails/SurveyDetails";
+import AdminSurveyResult from "../Pages/Dashboard/AdminSurveyResult/AdminSurveyResult";
+import SurveyorSurveyResult from "../Pages/Dashboard/SurveyorSurveyResult/SurveyorSurveyResult";
+import UserFeedback from "../Pages/Dashboard/UserFeedback/UserFeedback";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -36,6 +40,12 @@ import Surveys from "../Pages/Surveys/Surveys";
         {
             path:'/allSurvey',
             element:<Surveys></Surveys>,
+        },
+        {
+            path:'/details/:id',
+            element:<SurveyDetails></SurveyDetails>,
+            // loader:({params})=>fetch(`https://polling-and-surveys-application-server-mhkkykghg.vercel.app/survey/${params.id}`),
+            
         },
         {
           path:'/pro',
@@ -83,6 +93,10 @@ import Surveys from "../Pages/Surveys/Surveys";
                 element:<AdminRoute><AllPayment></AllPayment></AdminRoute>,
             },
             {
+                path:'allResponse',
+                element:<AdminRoute><AdminSurveyResult></AdminSurveyResult></AdminRoute>,
+            },
+            {
                 path:'surveyor',
                 element:<SurveyorRoute><Surveyor></Surveyor></SurveyorRoute>,
                
@@ -94,11 +108,21 @@ import Surveys from "../Pages/Surveys/Surveys";
             {
                 path:'updateSurvey/:id',
                 element:<SurveyorRoute><UpdateSurvey></UpdateSurvey></SurveyorRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/survey/${params.id}`),
+                loader:({params})=>fetch(`https://polling-and-surveys-application-server-mhkkykghg.vercel.app/survey/update/${params.id}`),
             },
             {
                path:'feedback',
                element:<SurveyorRoute><AdminFeedback></AdminFeedback></SurveyorRoute>,
+              
+            },
+            {
+               path:'userFeedback',
+               element:<SurveyorRoute><UserFeedback></UserFeedback></SurveyorRoute>,
+              
+            },
+            {
+               path:'surveyResponse',
+               element:<SurveyorRoute><SurveyorSurveyResult></SurveyorSurveyResult></SurveyorRoute>,
               
             }
         ]

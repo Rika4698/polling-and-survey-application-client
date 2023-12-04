@@ -59,10 +59,10 @@ const AllSurvey = () => {
 
     return (
         <div>
-            <h2 className="text-center text-violet-600 font-serif text-4xl font-semibold">All Survey</h2>
+          <h2 className="text-center text-violet-600 font-serif text-4xl font-semibold">All Survey</h2>
             <div className="mt-4">
                 {
-                     surveys.map((item, index) => <div key={item._id}>
+                   surveys.map((item, index) => <div key={item._id}>
                         <div>
                         <div className="mt-6">
                         <h3 className="font-semibold text-lg">{item.timestamp}</h3>

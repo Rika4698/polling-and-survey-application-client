@@ -45,9 +45,9 @@ const Dashboard = () => {
                        All Payments</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/dashboard/response">
+                        <NavLink to="/dashboard/allResponse">
                             
-                        Survey responses</NavLink>
+                        All Survey Responses</NavLink>
                     </li>
                    </ul>
 
@@ -77,17 +77,18 @@ const Dashboard = () => {
                             
                          Admin Feedback</NavLink>
                     </li>
-                    {/* <li>
-                        <NavLink to="/dashboard/list">
-                            
-                         Survey List</NavLink>
-                    </li>
                     <li>
-                        <NavLink to="/dashboard/list">
+                        <NavLink to="/dashboard/userFeedback">
                             
-                         Survey List</NavLink>
-                    </li> */}
+                         User Feedback</NavLink>
+                    </li>
 
+                    <li>
+                        <NavLink to="/dashboard/surveyResponse">
+                            
+                         Survey responses</NavLink>
+                    </li>
+                  
                     </ul>
                         </>
                         : ''

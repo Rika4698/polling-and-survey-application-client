@@ -76,7 +76,7 @@ const AdminSurvey = () => {
                     <h3 className="font-semibold text-lg text-blue-600 mt-2">{item.timestamp}</h3>
                     </div>
                     <div className="card w-[340px] md:w-[400px] lg:w-[600px] bg-base-100 shadow-xl mt-6">
-  <figure ><img className="w-[340px] h-[130px] md:w-[400px] md:h-[150px] lg:w-[600px] lg:h-[210px] " src={item.image} alt="Shoes" /></figure>
+  <figure ><img className="w-[340px] h-[130px] md:w-[400px] md:h-[150px] lg:w-[600px] lg:h-[210px] " src={item.image} alt="" /></figure>
   <div className="card-body">
     <h2 className="card-title text-xl font-bold">
       {item.title}

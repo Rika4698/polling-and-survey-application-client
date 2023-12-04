@@ -50,7 +50,7 @@ const UpdateSurvey = () => {
             loggedUserName:user.displayName
         };
         console.log(formData);
-        const survey = await axiosSecure.put(`/survey/${_id}`,formData);
+        const survey = await axiosSecure.put(`/survey/update/${_id}`,formData);
         console.log(survey.data);
         if(survey.data.modifiedCount>0){
             swal({

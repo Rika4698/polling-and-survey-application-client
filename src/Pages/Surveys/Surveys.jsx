@@ -3,21 +3,23 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useSurveyList from "../../hooks/useSurveyList";
 import { BiLike,BiDislike } from "react-icons/bi";
 import { FaRegCommentAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 const Surveys = () => {
     const axiosPublic = useAxiosPublic();
     const[survey] = useSurveyList();
-    // const [surveys, setSurveys] = useState([]);
+    const [surveys, setSurveys] = useState([]);
     const [filteredSurveys, setFilteredSurveys] = useState([]);
     const [searchText, setSearchText] = useState('');
 //   const [searchTitle, setSearchTitle] = useState('');
 //   const [searchCategory, setSearchCategory] = useState('');
 
-//   useEffect(() => {
-//     // Fetch all surveys when the component mounts
-//     fetchSurveys();
-//   }, []);
+  useEffect(() => {
+         const find = survey.filter((item)=>item.status=='published');
+         setSurveys(find);
+
+  }, [survey]);
 
 //   const fetchSurveys = async () => {
 //     try {
@@ -31,13 +33,14 @@ const Surveys = () => {
 
    
 useEffect(() => {
-    const filtered = survey.filter(surveys =>
-      surveys.title.toLowerCase().includes(searchText.toLowerCase()) ||
-      surveys.category.toLowerCase().includes(searchText.toLowerCase()) ||
-      surveys.totalVote.toString().includes(searchText)
+    const filtered = surveys.filter(survey =>
+      survey.title.toLowerCase().includes(searchText.toLowerCase()) ||
+      survey.category.toLowerCase().includes(searchText.toLowerCase()) ||
+      survey.totalVote.toString().includes(searchText)
     );
     setFilteredSurveys(filtered);
-  }, [searchText, survey]);
+  }, [searchText, surveys]);
+ 
 
 //   const handleSearch = async () => {
 //     if (searchTitle) {
@@ -76,8 +79,9 @@ useEffect(() => {
 //       .catch(error => {
 //         console.error('Error fetching surveys:', error);
 //       });
-//   }, [filter]);
+//   }, [filter]);.length
 // console.log(surveys);
+// console.log(filteredSurveys[2].comments.length);
     return (
         <div>
              <h1 className="text-center font-semibold font-serif text-5xl text-emerald-700 p-8">All Surveys</h1>
@@ -114,11 +118,13 @@ useEffect(() => {
     </div>
     <div className=" flex gap-14 lg:gap-16 mt-4" >
         <button className="flex gap-2"><BiLike className="text-2xl "></BiLike> <span className="text-green-800 font-bold">{survey.liked}</span></button>
-        <button className="flex gap-2"><BiDislike className="text-2xl "></BiDislike> <span className="text-red-600 font-bold ">{survey.disliked}</span></button>
-        <button className="flex gap-2"><FaRegCommentAlt className="text-xl"></FaRegCommentAlt></button>
+        <button className="flex gap-2 "><BiDislike className="text-2xl "></BiDislike> <span className="text-red-600 font-bold -mt-1">{survey.disliked}</span></button>
+        <button className="flex gap-2 mt-0"><FaRegCommentAlt className="text-xl"></FaRegCommentAlt><span className="text-blue-700 font-bold -mt-1 ">{survey.comments? survey.comments.length: 0}</span></button>
     </div>
     <div className="card-actions">
+    <Link to={`/details/${survey._id}`}>
       <button className="btn bg-violet-700 text-white text-lg mt-8 ">Survey Details</button>
+      </Link>
     </div>
   </div>
 </div>
