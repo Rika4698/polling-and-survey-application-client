@@ -24,15 +24,24 @@ const Login = () => {
         }
         // console.log(userInfo);
         axiosPublic.post('/user', userInfo)
-         
+      
                 .then(res => {
                     console.log(res.data);
+                })
+                swal({
+        
+                  text: "Google login successfully",
+                  icon: "success",
+                  timer: 1600,
+                  
                 })
            navigate(location?.state?location.state :'/' )
       })
       
   };
   const[errormessage, setErrorMessage] =useState("");
+
+  
   const handleLogin = e =>{
     e.preventDefault ();
     const form = new FormData(e.currentTarget);
@@ -51,6 +60,7 @@ signIn(email,password)
         
         text: "Login successfully",
         icon: "success",
+        timer: 1600,
         
       })
       navigate(location?.state?location.state :'/' )
@@ -70,12 +80,14 @@ signIn(email,password)
 });
 
 }
+
+e.target.reset()
 }
     
     return (
         
-        <div className="">
-           <div className="max-w-screen-md mx-auto pt-14 bg-violet-300 shadow-2xl lg:my-8 xl:max-w-screen-lg">
+        <div className="min-h-screen">
+           <div className="max-w-screen-md mx-auto pt-14 bg-violet-300 shadow-2xl lg:my-8 xl:max-w-screen-lg min-h-screen">
   <div className="hero-content flex-col lg:flex-row">
     <div className="hidden lg:flex lg:w-2/5 xl:w-2/5">
       

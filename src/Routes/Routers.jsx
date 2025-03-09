@@ -10,7 +10,7 @@ import ErrorMessage from "../Pages/ErrorMessage/ErrorMessage";
 import Dashboard from "../Layout/Dashboard";
 import Surveyor from "../Pages/Dashboard/Surveyor/Surveyor";
 import PrivateRoute from "./PrivateRoute";
-import AllUser from "../Pages/Dashboard/AllUser/AllUser";
+// import AllUser from "../Pages/Dashboard/AllUser/AllUser";
 import AdminRoute from "./AdminRoute";
 import SurveyorRoute from "./SurveyorRoute";
 import AllSurvey from "../Pages/Dashboard/AllSurvey/AllSurvey";
@@ -27,6 +27,7 @@ import SurveyDetails from "../Pages/SurveyDetails/SurveyDetails";
 import AdminSurveyResult from "../Pages/Dashboard/AdminSurveyResult/AdminSurveyResult";
 import SurveyorSurveyResult from "../Pages/Dashboard/SurveyorSurveyResult/SurveyorSurveyResult";
 import UserFeedback from "../Pages/Dashboard/UserFeedback/UserFeedback";
+import AllUsers from "../Pages/Dashboard/AllUser/AllUsers";
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -44,7 +45,7 @@ import UserFeedback from "../Pages/Dashboard/UserFeedback/UserFeedback";
         {
             path:'/details/:id',
             element:<SurveyDetails></SurveyDetails>,
-            // loader:({params})=>fetch(`https://polling-and-surveys-application-server-mhkkykghg.vercel.app/survey/${params.id}`),
+            // loader:({params})=>fetch(`https://polling-and-surveys-application-server.vercel.app/survey/${params.id}`),
             
         },
         {
@@ -81,7 +82,7 @@ import UserFeedback from "../Pages/Dashboard/UserFeedback/UserFeedback";
         children:[
             {
                 path:'user',
-                element:<AdminRoute><AllUser></AllUser></AdminRoute>,
+                element:<AdminRoute><AllUsers></AllUsers></AdminRoute>,
                 
             },
             {
@@ -108,7 +109,7 @@ import UserFeedback from "../Pages/Dashboard/UserFeedback/UserFeedback";
             {
                 path:'updateSurvey/:id',
                 element:<SurveyorRoute><UpdateSurvey></UpdateSurvey></SurveyorRoute>,
-                loader:({params})=>fetch(`https://polling-and-surveys-application-server-mhkkykghg.vercel.app/survey/update/${params.id}`),
+                loader:({params})=>fetch(`https://polling-and-surveys-application-server.vercel.app/survey/update/${params.id}`),
             },
             {
                path:'feedback',

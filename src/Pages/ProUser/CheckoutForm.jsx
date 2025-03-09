@@ -3,7 +3,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
-import Swal from "sweetalert2";
+import swal from "sweetalert";
 import moment from 'moment';
 import useAdmin from "../../hooks/useAdmin";
 import usePro from "../../hooks/usePro";
@@ -22,6 +22,7 @@ const CheckoutForm = () => {
     const[error,setError] = useState('');
     const[clientSecret,setClientSecret] = useState('');
     const[transactionId,setTransactionId] = useState('');
+    const [paymentSuccess, setPaymentSuccess] = useState(false); // NEW: Track payment status
     const{user} = useAuth();
     // const find = email=== user.email;
     // console.log(find);
@@ -48,15 +49,22 @@ const CheckoutForm = () => {
            
             return;
           }
+
+
           const card = elements.getElement(CardElement);
 
           if (card == null) {
             return;
           }
+
+         
+
           const {error, paymentMethod} = await stripe.createPaymentMethod({
             type: 'card',
             card,
           });
+
+
           if (error) {
             console.log('Payment error', error);
             setError(error.message);
@@ -85,6 +93,7 @@ const CheckoutForm = () => {
             if(paymentIntent.status === 'succeeded'){
               console.log('transaction id', paymentIntent.id);
               setTransactionId(paymentIntent.id);
+              setPaymentSuccess(true); // NEW: Mark payment as successful
 
               const payment = {
                 email:user.email,
@@ -98,18 +107,21 @@ const CheckoutForm = () => {
               console.log('payment saved',res.data);
               if (res.data.insertedId) {
                 // console.log(res.data?.paymentResult?.insertedId);
-                Swal.fire({
+                swal({
                     position: "top-end",
                     icon: "success",
                     title: "Payment done.",
-                    showConfirmButton: false,
-                    timer: 1600
+                    button: true,
+                    timer: 3600
                 });
+                  // Upgrade user to Pro after successful payment
+        handleMakePro(userEmail);
+        card.clear();
                 // navigate('/dashboard/paymentHistory')
               }
                else  {
                 
-                Swal.fire({
+                swal({
                     icon: 'error',
                     title: 'Opps!',
                     text: 'Already Exist in the Cart.',
@@ -124,25 +136,27 @@ const CheckoutForm = () => {
     const handleMakePro = userEmail =>{
       // const findUser = email.filter((item)=> console.log(item));
       // console.log(findUser);
+     
+     
       axiosSecure.patch(`/user/pro/${userEmail}`)
       .then(res =>{
           console.log(res.data)
           if(res.data.modifiedCount > 0){
               // refetch();
-              Swal.fire({
+              swal({
                   position: "top-end",
                   icon: "success",
                   title: "Now you are a pro member!",
-                  showConfirmButton: false,
-                  timer: 1500
+                  button: true,
+                  timer: 2500
                 });
           }
       })
   }
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-            <CardElement className="mx-6 mt-12"
+            <form onSubmit={handleSubmit} >
+            <CardElement className="mx- mt-12"
         options={{
           style: {
             base: {
@@ -158,10 +172,10 @@ const CheckoutForm = () => {
           },
         }}
       />
-
+    <div className="border-b border-light-2 border w-full mt-10 mb-5"></div>
      {
-        isDisabled ? (
-          <div className=" btn-disabled cursor-not-allowed text-center  text-xl rounded-lg bg-slate-400 w-44 h-10 text-white ml-8 mt-14  ">
+        isDisabled || paymentSuccess ? (
+          <div className=" disabled cursor-not-allowed text-center  text-xl rounded-lg bg-slate-400 text-white   mt-8   inline-flex items-center justify-center  h-10 px-5  font-medium ring-2 ring-slate-800   w-56 mx-[70px] sm:w-full sm:mx-auto ">
            
       <button disabled className="mt-1">Pay</button>
      
@@ -169,18 +183,20 @@ const CheckoutForm = () => {
           </div>
         ) : (
          
-          <button onClick={()=>handleMakePro(userEmail)} className="btn bg-blue-500 text-white ml-8 mt-14 w-44 h-10 text-xl" disabled={!stripe||!clientSecret} type="submit" >
+          <button className="  mt-8  text-xl inline-flex items-center justify-center bg-blue-600 text-white h-10 px-5 rounded-lg font-medium ring-2 ring-blue-900  hover:bg-blue-400 w-56 mx-[70px] sm:w-full sm:mx-auto  " 
+          disabled={!stripe||!clientSecret|| paymentSuccess} type="submit" >
         Pay
       </button>
       
          
         )
       }
-      {/* <button onClick={()=>handleMakePro(userEmail)} className="btn bg-blue-500 text-white ml-8 mt-14" disabled={!stripe||!clientSecret} type="submit" >
+      {/* <button onClick={()=>handleMakePro(userEmail)} className="btn bg-blue-500 text-white ml-8 mt-14" disabled={!stripe||!clientSecret} type="submit" >  4242 4242 4242 4242  12 / 45  121  45121
         Pay
       </button> */}
-      <p className="text-red-600 ml-8 my-4">{error}</p>
-      {transactionId && <p className="text-green-600 mx-6 mb-4">Your transaction id: {transactionId}</p> }
+      <p className="text-red-600 text-center my-4 text-base">{error}</p>
+      <div>
+      {transactionId && <p className="text-green-600 mx-6 mb-4 text-base text-center font-medium">Your transaction id: {transactionId}</p> }</div>
             </form>
         </div>
     );

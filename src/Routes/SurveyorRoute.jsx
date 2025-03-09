@@ -9,7 +9,11 @@ const SurveyorRoute = ({children}) => {
     const [isSurveyor, isSurveyorLoading] = useSurveyor();
     const location = useLocation();
     if(loading || isSurveyorLoading){
-        return <span className="loading loading-spinner loading-lg"></span> 
+        return (
+            <div className="flex justify-center items-center h-screen bg-white dark:bg-slate-800">
+                <span className="loading loading-spinner loading-lg text-gray-800 dark:text-gray-200"></span>
+            </div>
+        ); 
     }
     if(user&& isSurveyor)
     {

@@ -4,7 +4,7 @@ import useAxiosPublic from "./useAxiosPublic";
 
 const useSurveyList = () => {
     const axiosPublic = useAxiosPublic();
-    const {data: survey = [], isPending: loading, refetch} = useQuery({
+    const {data: survey = [],  isLoading, refetch,isFetching} = useQuery({
         queryKey: ['survey'], 
         queryFn: async() =>{
             const res = await axiosPublic.get('/survey');
@@ -14,7 +14,7 @@ const useSurveyList = () => {
     })
 
 
-    return [survey, loading, refetch]
+    return [survey, isLoading, refetch,isFetching]
 };
 
 export default useSurveyList;

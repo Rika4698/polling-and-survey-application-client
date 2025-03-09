@@ -1,99 +1,99 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Disclosure } from '@headlessui/react'
-import { ChevronUpIcon } from '@heroicons/react/20/solid'
+// import { Disclosure } from '@headlessui/react'
+// import { ChevronUpIcon } from '@heroicons/react/20/solid'
 
 const Section = () => {
     return (
-        <div className="w-full px-4 pt-16  bg-lime-100">
-            <h3 className='text-center text-4xl font-semibold text-rose-500 mb-12'>Frequently Asked Questions (FAQ)</h3>
-        <div className="mx-auto w-full max-w-md rounded-2xl bg-lime-100 p-2 pb-10  ">
-        
-          <Disclosure>
-            {({ open }) => (
-              <>
-                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75  lg:text-4xl ">
-                  <span>How do I create a new survey?</span>
-                  <ChevronUpIcon
-                    className={`${
-                      open ? 'rotate-180 transform' : ''
-                    } h-5 w-5 text-purple-500`}
-                  />
-                </Disclosure.Button>
-                <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500 lg:text-xl">
-                You can create a new survey by navigating to the Dashboard and selecting the "Create Survey" option.
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
-          <Disclosure as="div" className="mt-2">
-            {({ open }) => (
-              <>
-                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-blue-100 px-4 py-2 text-left text-sm font-medium text-blue-700 hover:bg-blue-200 focus:outline-none focus-visible:ring focus-visible:ring-blue-500/75 lg:text-4xl">
-                  <span>Can I update my survey questions after publishing?</span>
-                  <ChevronUpIcon
-                    className={`${
-                      open ? 'rotate-180 transform' : ''
-                    } h-5 w-5 text-purple-500`}
-                  />
-                </Disclosure.Button>
-                <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500 lg:text-xl">
-                Yes, once a survey is published, you can update the questions to maintain data integrity.
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
-          <Disclosure as="div" className="mt-2">
-            {({ open }) => (
-              <>
-                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75 lg:text-4xl">
-                  <span>How do I comment on a survey?</span>
-                  <ChevronUpIcon
-                    className={`${
-                      open ? 'rotate-180 transform' : ''
-                    } h-5 w-5 text-purple-500`}
-                  />
-                </Disclosure.Button>
-                <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500 lg:text-xl">
-                Only pro users can comment in a survey. You must be a Pro User member.
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
-          <Disclosure as="div" className="mt-2">
-            {({ open }) => (
-              <>
-                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-blue-100 px-4 py-2 text-left text-sm font-medium text-blue-700 hover:bg-blue-200 focus:outline-none focus-visible:ring focus-visible:ring-blue-500/75 lg:text-4xl">
-                  <span>How to become a pro user?</span>
-                  <ChevronUpIcon
-                    className={`${
-                      open ? 'rotate-180 transform' : ''
-                    } h-5 w-5 text-purple-500`}
-                  />
-                </Disclosure.Button>
-                <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500 lg:text-xl">
-                You have to pay for membership on the pro user page.
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
-          <Disclosure as="div" className="mt-2">
-            {({ open }) => (
-              <>
-                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75 lg:text-4xl">
-                  <span>Can I report a survey?</span>
-                  <ChevronUpIcon
-                    className={`${
-                      open ? 'rotate-180 transform' : ''
-                    } h-5 w-5 text-purple-500`}
-                  />
-                </Disclosure.Button>
-                <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500 lg:text-xl">
-                Only logged-in users can report in surveys.
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
-        </div>
+      <div>
+       
+
+   
+   
+   
+   
+   
+      <div className="relative isolate overflow-hidden bg-custom bg-white dark:bg-zinc-600 ">
+                <div className="py-24 px-8 max-w-5xl mx-auto flex flex-col md:flex-row gap-12">
+                    <div className="flex flex-col text-center md:text-left basis-1/2">
+                        <p className="inline-block font-semibold text-primary mb-4 dark:text-blue-300 font-serif">F.A.Q</p>
+                        <p className="sm:text-4xl text-3xl font-extrabold text-base-content dark:text-base-200 font-serif">Frequently Asked Questions</p>
+                    </div>
+                    <ul className="basis-1/2">
+                        <li className='group'>
+                            <button className="relative  flex gap-2 items-center w-full py-5 text-base font-semibold text-left border-t md:text-lg border-base-content/10 dark:border-slate-400" aria-expanded="false">
+                                <span className="flex-1  text-purple-700 text-xl dark:text-purple-300">How do I create a new survey?</span>
+                                <svg className="flex-shrink-0 w-4 h-4  ml-auto fill-current dark:text-slate-50" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                    <rect y="7" width="16" height="2" rx="1" className="transform origin-center transition duration-200 ease-out false"></rect>
+                                    <rect y="7" width="16" height="2" rx="1" className="block group-hover:opacity-0 origin-center rotate-90 transition duration-200 ease-out false"></rect>
+                                </svg>
+                            </button>
+                            <div className="transition-all duration-300 ease-in-out group-hover:max-h-60 max-h-0 overflow-hidden" style={{ transition: "max-height 0.3s ease-in-out 0s" }}>
+                                <div className="pb-5 leading-relaxed">
+                                    <div className="space-y-2 leading-relaxed font-medium dark:text-gray-200"> User can not create survey. As I say before, we have dedicated surveyor. Their work is to create survey.</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className='group'>
+                            <button className="relative flex gap-2 items-center w-full py-5 text-base font-semibold text-left border-t md:text-lg border-base-content/10 dark:border-slate-400" aria-expanded="false">
+                                <span className="flex-1 text-blue-700 text-xl dark:text-blue-300">Can I update my survey questions after publishing?</span>
+                                <svg className="flex-shrink-0 w-4 h-4 ml-auto fill-current dark:text-slate-50" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                    <rect y="7" width="16" height="2" rx="1" className="transform origin-center transition duration-200 ease-out false"></rect>
+                                    <rect y="7" width="16" height="2" rx="1" className="group-hover:opacity-0 transform origin-center rotate-90 transition-all duration-200 ease-out false"></rect>
+                                </svg>
+                            </button>
+                            <div className="transition-all duration-300 ease-in-out group-hover:max-h-60 max-h-0 overflow-hidden" style={{ transition: "max-height 0.3s ease-in-out 0s" }}>
+                                <div className="pb-5 leading-relaxed">
+                                    <div className="space-y-2 leading-relaxed font-medium dark:text-gray-200">No, once you are a surveyor, you can update the questions to maintain data integrity.</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className='group'>
+                            <button className="relative flex gap-2 items-center w-full py-5 text-base font-semibold text-left border-t md:text-lg border-base-content/10 dark:border-slate-400" aria-expanded="false">
+                                <span className="flex-1 text-purple-700 text-xl dark:text-purple-300">How do I comment on a survey?</span>
+                                <svg className="flex-shrink-0 w-4 h-4 ml-auto fill-current dark:text-slate-50" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                    <rect y="7" width="16" height="2" rx="1" className="transform origin-center transition duration-200 ease-out false"></rect>
+                                    <rect y="7" width="16" height="2" rx="1" className="group-hover:opacity-0 transform origin-center rotate-90 transition duration-200 ease-out false"></rect>
+                                </svg>
+                            </button>
+                            <div className="transition-all duration-300 ease-in-out group-hover:max-h-60 max-h-0 overflow-hidden" style={{ transition: "max-height 0.3s ease-in-out 0s" }}>
+                                <div className="pb-5 leading-relaxed">
+                                    <div className="space-y-2 leading-relaxed font-medium dark:text-gray-200">Only pro users can comment in a survey. You must be a Pro User member.</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className='group'>
+                            <button className="relative flex gap-2 items-center w-full py-5 text-base font-semibold text-left border-t md:text-lg border-base-content/10 dark:border-slate-400" aria-expanded="false">
+                                <span className="flex-1 text-blue-700 text-xl dark:text-blue-300">How to become a pro user?</span>
+                                <svg className="flex-shrink-0 w-4 h-4 ml-auto fill-current dark:text-slate-50" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                    <rect y="7" width="16" height="2" rx="1" className="transform origin-center transition duration-200 ease-out false"></rect>
+                                    <rect y="7" width="16" height="2" rx="1" className="group-hover:opacity-0 transform origin-center rotate-90 transition duration-200 ease-out false"></rect>
+                                </svg>
+                            </button>
+                            <div className="transition-all duration-300 ease-in-out group-hover:max-h-60 max-h-0 overflow-hidden" style={{ transition: "max-height 0.3s ease-in-out 0s" }}>
+                                <div className="pb-5 leading-relaxed">
+                                    <div className="space-y-2 leading-relaxed font-medium dark:text-gray-200">You have to pay for membership on the pro user page.</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className='group'>
+                            <button className="relative flex gap-2 items-center w-full py-5 text-base font-semibold text-left border-t md:text-lg border-base-content/10 dark:border-slate-400" aria-expanded="false">
+                                <span className="flex-1 text-purple-700 text-xl dark:text-purple-300">Can I report a survey?</span>
+                                <svg className="flex-shrink-0 w-4 h-4 ml-auto fill-current dark:text-slate-50" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                    <rect y="7" width="16" height="2" rx="1" className="transform origin-center transition duration-200 ease-out false"></rect>
+                                    <rect y="7" width="16" height="2" rx="1" className="group-hover:opacity-0 transform origin-center rotate-90 transition duration-200 ease-out false"></rect>
+                                </svg>
+                            </button>
+                            <div className="transition-all duration-300 ease-in-out group-hover:max-h-60 max-h-0 overflow-hidden" style={{ transition: "max-height 0.3s ease-in-out 0s" }}>
+                                <div className="pb-5 leading-relaxed">
+                                    <div className="space-y-2 leading-relaxed font-medium dark:text-gray-200">Only logged-in users can report in surveys.</div>
+                                </div>
+                            </div>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+
       </div>
     );
 };

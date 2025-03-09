@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { Link } from "react-router-dom";
-import { BiLike,BiDislike } from "react-icons/bi";
-import { FaRegCommentAlt } from "react-icons/fa";
-
-
+// import { BiLike,BiDislike } from "react-icons/bi";
+// import { FaRegCommentAlt } from "react-icons/fa";
+import { ThumbsUp, ThumbsDown, MessageCircle } from "lucide-react";
+import { LuVote } from "react-icons/lu";
 const MostVoted = () => {
     const axiosPublic = useAxiosPublic();
+    
   const { data: survey = [] } = useQuery({
     queryKey: ["survey"],
     queryFn: async () => {
@@ -18,8 +19,8 @@ const MostVoted = () => {
 
 //   console.log(survey[1].comments.length);
     return (
-        <div>
-             <h2 className="text-center font-bold text-5xl my-20 font-serif text-orange-800">
+        <div className="bg-white dark:bg-zinc-600">
+             {/* <h2 className="text-center font-bold text-5xl my-20 font-serif text-orange-800">
         Most Voted Surveys
       </h2>
 
@@ -50,9 +51,9 @@ const MostVoted = () => {
 
 
               <div className="flex gap-6 lg:gap-20 mt-2">
-              <h3 className="flex items-center font-bold text-teal-600 gap-2 badge text-lg px-2 py-2 h-8 lg:text-2xl">
+              <h3 className="flex items-center font-bold text-teal-600 gap-2 badge text-lg px-2 py-2 h-8 lg:text-2xl"> */}
                 {/* <GiVote className="text-3xl" /> */}
-                Vote:
+                {/* Vote:
                 <span className="  rounded-full text-blue-700 font-bold">
                   {item.totalVote}
                 </span>
@@ -74,7 +75,85 @@ const MostVoted = () => {
             </div>
           </div>
         ))}
-      </div> 
+      </div> */}
+
+
+
+
+
+      <div className="container mx-auto p-5">
+      <h1 className="my-14 text-center font-bold text-3xl md:text-5xl  font-serif text-blue-600 dark:text-blue-500"><span className="text-purple-700 dark:text-purple-400 ">Most Voted</span> Surveys</h1>
+
+      {/* Responsive Grid Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
+        {survey.length > 0 ? survey.map((survey) => (
+          <div key={survey._id}  className="bg-slate-50 dark:bg-slate-500 rounded-2xl shadow-lg overflow-hidden  flex flex-col h-full
+                 dark:bg-shadesOfBlue    group hover:ring-2 hover:ring-purple-500 dark:hover:ring-white transform duration-500 hover:scale-105 hover:shadow-xl">
+            {/* Image */}
+            <img className="w-full h-52 object-cover" src={survey.image} alt="Survey" />
+
+            {/* Content */}
+            <div className="p-5 flex-grow flex flex-col  ">
+              <h2 className=" text-gray-900 dark:text-white text-xl lg:text-lg xl:text-xl  font-bold mb-2">{survey.title}</h2>
+               {/* Category */}
+               <span className="inline-block bg-purple-100 text-purple-600 text-sm font-medium px-3 py-1 rounded-full mt-2 self-start">
+                {survey.category}
+              </span>
+
+              {/* Fixed Height Description */}
+              <p className="text-gray-600 dark:text-gray-300 mt-4 flex-grow h-28">
+                {survey.description}
+              </p>
+
+              {/* Category */}
+              {/* <span className="inline-block bg-blue-100 text-blue-600 text-sm font-medium mt-3 px-3 py-1 rounded-full self-start">
+                {survey.category}
+              </span> */}
+
+              {/* Stats */}
+              <div className="flex justify-between items-center mt-4">
+                <div className="flex space-x-4">
+                  <div className="flex items-center space-x-1 text-gray-600">
+                    <ThumbsUp size={19} className="text-green-500 dark:text-green-400 dark:stroke-[3] " />
+                    <span className="font-medium dark:text-white ">{survey.liked}</span>
+                  </div>
+                  <div className="flex items-center space-x-1 text-gray-600">
+                    <ThumbsDown size={19} className="text-red-500 dark:text-red-400 dark:stroke-[3] mt-1" />
+                    <span className="font-medium dark:text-white ">{survey.disliked}</span>
+                  </div>
+                  <div className="flex items-center space-x-1 text-gray-600">
+                    <MessageCircle size={19} className="text-blue-500 dark:text-blue-400 dark:stroke-[3]" />
+                    <span className="font-medium dark:text-white ">{survey.comments? survey.comments.length : 0}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-1 text-gray-700 ">
+                  <LuVote size={20} className="text-gray-500 dark:text-gray-300 " />
+                  <span className="font-medium  dark:text-white">{survey.totalVote} Vote</span>
+                </div>
+              </div>
+
+              {/* Survey Details Button */}
+              <Link
+                  to={`/details/${survey._id}`}  className="mt-8     rounded-lg font-semibold text-center  mx-auto  text-lg    flex border-2 bottom-0 border-purple-600 dark:border-slate-700 dark:text-slate-700 p-2 px-6 capitalize text-purple-600 group-hover:bg-purple-500 dark:group-hover:bg-slate-600 group-hover:text-white transform ease-in-out delay-75 opacity-85 hover:opacity-100">
+                View Survey Details
+             
+              </Link>
+               
+               
+          
+            </div>
+          </div>
+        )):""}
+      </div>
+      {survey.length == 0?(<h3 className="text-center  h-36 text-lg font-medium text-slate-700 dark:text-slate-300">No survey has been created yet. </h3>):""}
+    </div>
+
+    
+
+
+
+
         </div>
     );
 };

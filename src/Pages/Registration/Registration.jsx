@@ -22,12 +22,19 @@ const Registration = () => {
             }
             // console.log(userInfo);
             axiosPublic.post('/user', userInfo)
-             
+            
                     .then(res => {
                         
                             console.log(res.data);
                            
                        
+                    })
+                    swal({
+        
+                      text: "Google login successfully",
+                      icon: "success",
+                      timer: 1600,
+                      
                     })
             navigate(location?.state?location.state :'/' )
         })
@@ -90,6 +97,7 @@ const Registration = () => {
                     
                                             text: "Registration done successfully",
                                             icon: "success",
+                                            timer: 1600,
                                           })
                                           navigate("/login");
                                     }
@@ -106,10 +114,10 @@ const Registration = () => {
             }
         }
        
-        
+        e.target.reset() 
     };
     return (
-        <div>
+        <div className="min-h-screen">
             <div className=" bg-gradient-to-r from-violet-50 to-orange-200 max-w-screen-md mx-auto pt-14 shadow-2xl lg:my-8 xl:max-w-screen-lg">
   <div className="hero-content flex-col lg:flex-row ">
   <div className="hidden lg:flex lg:w-1/4 xl:w-2/5">
