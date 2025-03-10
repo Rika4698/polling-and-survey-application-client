@@ -9,7 +9,7 @@ https://polling-and-survey-client.web.app/
  when you are admin , you can change user roles to admin/surveyor. Also you delete a user. published and unpublished a survey. and see all survey data.See all Survey responses with
 ● A table (name, email, time, voted) and
 ● Chart
-(Admin email:person12@gmail.com, Admin password:*Person4)
+**(Admin email:person12@gmail.com, Admin password:*Person4)**
 
 - **Surveyor Side:**
 when yor are a surveyor, you can create or update a survey.
@@ -17,7 +17,7 @@ you can see all feedback for individual surveys given by users. also you can see
 admin on unpublished. See particular Survey responses with
 ● A table (name, email, time, voted) and
 ● Chart
-(Surveyor email:person@gmail.com, Surveyor password:!Abcdefg)
+**(Surveyor email:person@gmail.com, Surveyor password:!Abcdefg)**
 
 - **Become a pro user:**
  Logged in user payment in pro user package for become a pro user member.
