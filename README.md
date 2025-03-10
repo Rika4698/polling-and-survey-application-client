@@ -10,7 +10,7 @@ https://polling-and-survey-client.web.app/
 ● A table (name, email, time, voted) and
 ● Chart
 
-**(Admin email:person12@gmail.com, Admin password:*Person4)**
+# (Admin email:person12@gmail.com,   Admin password:*Person4)
 
 - **Surveyor Side:**
 when yor are a surveyor, you can create or update a survey.
