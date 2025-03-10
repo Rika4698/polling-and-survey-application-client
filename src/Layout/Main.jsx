@@ -81,7 +81,11 @@ useEffect(() => {
         shadow-lg 
         bg-purple-600 
         hover:bg-purple-700 
+        dark:bg-white
+        dark:hover:bg-slate-200
         text-white 
+        dark:text-black
+        animate-bounce
         items-center 
         justify-center 
         transition-all 
