@@ -18,6 +18,7 @@ you can see all feedback for individual surveys given by users. also you can see
 admin on unpublished. See particular Survey responses with
 ● A table (name, email, time, voted) and
 ● Chart
+
 **(Surveyor email:person@gmail.com, Surveyor password:!Abcdefg)**
 
 - **Become a pro user:**
