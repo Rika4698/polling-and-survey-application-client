@@ -55,23 +55,27 @@ const Navbar = () => {
       
     const navOptions=<>
   <li className="group max-lg:border-b max-lg:py-3 px-3 relative"><NavLink to="/"
+              onClick={() => setIsOpen(false)}
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-lg font-serif dark:text-[#e3a1f0] " : "font-medium text-slate-800 text-lg font-serif dark:text-white"
                 }>Home</NavLink></li>
                
-                    <li className="group max-lg:border-b max-lg:py-3 px-3 relative"><NavLink to="/allSurvey"
+                    <li className="group max-lg:border-b max-lg:py-3 px-3 relative"><NavLink to="/allSurvey" onClick={() => setIsOpen(false)}
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-lg font-serif dark:text-[#e3a1f0] " : "font-medium text-slate-800 text-lg font-serif dark:text-white "
                 }>Surveys</NavLink></li>
-                    <li className="group max-lg:border-b max-lg:py-3 px-3 relative"><NavLink to="/pro"
+
+                    <li className="group max-lg:border-b max-lg:py-3 px-3 relative"><NavLink to="/pro"  onClick={() => setIsOpen(false)}
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-lg font-serif dark:text-[#e3a1f0]" : "font-medium text-slate-800 text-lg font-serif dark:text-white"
                 }>Pro-User</NavLink></li>
-                    <li className="group max-lg:border-b max-lg:py-3 px-3 relative"><NavLink to="/about"
+
+                    <li className="group max-lg:border-b max-lg:py-3 px-3 relative"><NavLink to="/about" onClick={() => setIsOpen(false)}
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-lg font-serif dark:text-[#e3a1f0] " : "font-medium text-slate-800 text-lg font-serif dark:text-white"
                 }>About Us</NavLink></li>
-                    <li className="group max-lg:border-b max-lg:py-3 px-3 relative"><NavLink to="/contact"
+
+                    <li className="group max-lg:border-b max-lg:py-3 px-3 relative"><NavLink to="/contact" onClick={() => setIsOpen(false)}
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ?  "text-[#bd1ddd] font-bold text-lg font-serif dark:text-[#e3a1f0] " : "font-medium text-slate-800 text-lg font-serif dark:text-white"
                 }>Contact Us</NavLink></li>
@@ -87,13 +91,13 @@ const Navbar = () => {
 
 
 
-<div className="relative ">
+     <div className="relative ">
 
       <nav className="bg-white dark:bg-slate-800 shadow-md fixed w-full z-50 top-0 start-0 border-b border-gray-200 dark:border-gray-600 ">
         <div className=" flex  items-center justify-between mx-auto p-3 lg:px-8 ">
           {/* Logo Section */}
           <Link to="/">
-              <img className=" w-24 ml-4 md:w-28 lg:w-28 lg:ml-5  " src="https://i.ibb.co/qMNMJSM/survey-swift-high-resolution-logo-transparent.png" alt="" />
+              <img className=" w-32 h-[75px] ml-4 md:w-32 lg:w-36 lg:h-[80px] lg:ml-5  " src="https://i.ibb.co/qMNMJSM/survey-swift-high-resolution-logo-transparent.png" alt="" />
             </Link>
 
 
