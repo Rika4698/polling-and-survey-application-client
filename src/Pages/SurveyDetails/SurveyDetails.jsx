@@ -974,12 +974,12 @@ console.log();
   //   );
   // }
   return (
-    <div className="mt-28 md:mt-32 min-h-screen dark:bg-gray-900 py-8 px-4 ">
+    <div className="mt-20 min-h-screen dark:bg-zinc-800 py-8 px-4 ">
       {isFetching? (<div className="flex justify-center items-center h-screen bg-white dark:bg-gray-900 ">
          <span className="loading loading-spinner loading-lg text-gray-800 dark:text-gray-200"></span>
      </div>): isUserVoted || !dateExpire ? (
-      <h1 className="text-center font-semibold font-serif text-5xl text-purple-700 dark:text-white pt-5 ">Survey Results</h1>):(
-      <h1 className="text-center font-semibold font-serif text-5xl text-purple-700 dark:text-white pt-5 ">Survey Details</h1>)}
+      <h1 className="text-center font-semibold font-serif text-5xl text-purple-700 dark:text-purple-400 pt-5 ">Survey Results</h1>):(
+      <h1 className="text-center font-semibold font-serif text-5xl text-purple-700 dark:text-purple-400 pt-5 ">Survey Details</h1>)}
       {isUserVoted?(<h3 className="text-center text-xl font-medium text-green-600 dark:text-green-500 pt-4">vote done and see the result</h3>):""}
       {!dateExpire?(<h3 className="text-center text-xl font-medium text-red-600 dark:text-red-500 pt-4">Voting deadline is over, see the result</h3>):""}
       <div className="max-w-4xl mx-auto mt-10">
@@ -1010,7 +1010,7 @@ console.log();
                   </span>
                 </div>
                 
-                <p className="text-blue-700 dark:text-blue-500  font-semibold text-lg">Description:  <span className="text-gray-800 font-normal dark:text-gray-300">{description}</span> </p>
+                <p className="text-blue-700 dark:text-blue-500  font-semibold text-lg">Description:  <span className="text-gray-800 font-medium dark:text-gray-300">{description}</span> </p>
                 
                 <div className="space-y-4">
                   <p className="text-green-600 dark:text-emerald-400 font-semibold text-lg">Survey Date: <span className="text-gray-800 dark:text-gray-300">{timestamp}</span></p>

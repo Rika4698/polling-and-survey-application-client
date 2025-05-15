@@ -19,7 +19,7 @@ const MostVoted = () => {
 
 //   console.log(survey[1].comments.length);
     return (
-        <div className="bg-white dark:bg-zinc-600">
+        <div className="bg-white dark:bg-zinc-700">
              {/* <h2 className="text-center font-bold text-5xl my-20 font-serif text-orange-800">
         Most Voted Surveys
       </h2>
@@ -101,7 +101,7 @@ const MostVoted = () => {
               </span>
 
               {/* Fixed Height Description */}
-              <p className="text-gray-600 dark:text-gray-300 mt-4 flex-grow h-28">
+              <p className="text-gray-600 dark:text-gray-200 mt-4 flex-grow h-28 font-medium">
                 {survey.description}
               </p>
 

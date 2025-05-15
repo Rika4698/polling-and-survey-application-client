@@ -53,10 +53,10 @@ const Testimonial = () => {
     };
 
     return (
-        <div className="py-16 bg-white dark:bg-zinc-600  ">
+        <div className="py-16 bg-white dark:bg-zinc-700  ">
             <div className="flex flex-col items-center justify-center">
-                <h2 className="font-semibold w-full text-center text-3xl md:text-3xl lg:text-5xl text-black dark:text-white font-serif">
-                    Client <span className="text-[#db332a] dark:text-[#f38984]">Testimonials</span>
+                <h2 className="font-semibold w-full text-center text-3xl md:text-3xl lg:text-5xl text-blue-600 dark:text-blue-500 font-serif">
+                    Client <span className="text-purple-700 dark:text-purple-400">Testimonials</span>
                 </h2>
                 <p className="text-sm flex mt-3 text-center text-slate-800 dark:text-slate-300 font-serif">
                     Discover What Our Clients Say

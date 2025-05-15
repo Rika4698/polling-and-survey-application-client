@@ -71,7 +71,7 @@ const AllSurvey = () => {
 
     return (
         <div>
-          <h2 className="text-center text-violet-600 dark:text-white font-serif text-4xl font-bold mt-4">All Survey</h2>
+          <h2 className="text-center text-violet-600 dark:text-violet-300 font-serif text-4xl font-bold mt-4">All Survey</h2>
             {/* <div className="mt-4">
                 {
                    surveys.map((item, index) => <div key={item._id}>
@@ -174,13 +174,14 @@ const AllSurvey = () => {
               <div className="flex space-x-2">
               <Link to={`/dashboard/updateSurvey/${card._id}`}>
                 <button
-                 
+                 title="Update"
                   className="p-2 bg-purple-200 dark:bg-gray-800 text-blue-700 dark:text-blue-400 rounded-full hover:bg-blue-700 
                   dark:hover:bg-blue-500 hover:text-white dark:hover:text-white    transition-all duration-500  "
                 >
                   <FiEdit className="text-lg "   />
                 </button></Link>
                 <button
+                title="Delete"
                  onClick={()=>handleDeleteItem(card)}
                   className="p-2 bg-purple-200 dark:bg-gray-800 text-red-600
                   dark:text-red-500

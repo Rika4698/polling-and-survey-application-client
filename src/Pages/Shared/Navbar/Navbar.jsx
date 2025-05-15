@@ -97,7 +97,7 @@ const Navbar = () => {
         <div className=" flex  items-center justify-between mx-auto p-3 lg:px-8 ">
           {/* Logo Section */}
           <Link to="/">
-              <img className=" w-32 h-[75px] ml-4 md:w-32 lg:w-36 lg:h-[80px] lg:ml-5  " src="https://i.ibb.co/qMNMJSM/survey-swift-high-resolution-logo-transparent.png" alt="" />
+              <img className=" w-[85px] h-[65px] ml-4 md:w-[85px] lg:w-[85px] lg:h-[65px] lg:ml-5  " src="https://i.ibb.co/qMNMJSM/survey-swift-high-resolution-logo-transparent.png" alt="" />
             </Link>
 
 
@@ -142,6 +142,7 @@ const Navbar = () => {
             className="sr-only"
             checked={isDarkMode}
             onChange={() => setIsDarkMode(!isDarkMode)}
+             onClick={() => setIsOpen(false)}
           />
           <div className={`block w-14 h-8 rounded-full transition-all duration-300 ease-in-out ${isDarkMode ? 'bg-blue-500 shadow-inner' : 'bg-gray-300 shadow-md'}`}></div>
           <div className={`absolute left-1 top-1 w-6 h-6 rounded-full bg-white transition-transform duration-300 ease-in-out ${isDarkMode ? 'translate-x-6' : ''}`}></div>

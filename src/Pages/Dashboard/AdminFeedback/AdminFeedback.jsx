@@ -39,7 +39,7 @@ const AdminFeedback = () => {
   }
     return (
         <div>
-             <h2 className="text-center text-lime-600 dark:text-lime-300 font-serif text-4xl font-bold underline mt-5 "> Surveys Admin Feedback</h2>
+             <h2 className="text-center text-purple-600 dark:text-purple-300 font-serif text-4xl font-bold underline mt-5 "> Surveys Admin Feedback</h2>
             {/* <div className="mt-4">
                 {
                      surveys.map((item, index) => <div key={item._id}>

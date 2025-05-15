@@ -6,10 +6,10 @@ const AboutUs = () => {
        
 
     
-    <div className="min-h-screen bg-lime-100 py-12 sm:py-16 lg:py-16 mt-28 md:mt-32 overflow-x-hidden dark:bg-slate-600">
+    <div className="min-h-screen bg-lime-100 py-12 sm:py-16 lg:py-16 mt-20 overflow-x-hidden dark:bg-zinc-700">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 min-h-screen">
         <div className="text-center mb-12">
-          <h3 className="text-4xl font-serif font-semibold text-orange-700 underline mb-4 dark:text-orange-100">
+          <h3 className="text-4xl font-serif font-semibold text-purple-700 dark:text-purple-400  mb-4 ">
             Welcome to Our Survey Swift!
           </h3>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto mt-6 font-medium dark:text-gray-400">

@@ -8,14 +8,14 @@ const Contact = () => {
 
 
 
-     <section className="bg-blue-50 dark:bg-slate-800/80  mt-28 md:mt-32 min-h-screen" id="contact">
+     <section className="bg-blue-50 dark:bg-slate-800/90  mt-20 min-h-screen" id="contact">
     <div className="mx-auto max-w-7xl  px-4 py-16 sm:px-6 lg:px-8 lg:py-20 ">
         <div className="mb-4">
             <div className="mb-6 max-w-3xl text-center sm:text-center md:mx-auto md:mb-12">
                 <p className="text-xl font-semibold uppercase tracking-wide text-blue-600 font-serif dark:text-blue-300">
                     Contact
                 </p>
-                <h2 className="font-heading mb-4 font-bold tracking-tight text-gray-900 dark:text-white text-3xl sm:text-5xl">
+                <h2 className="font-heading mb-4 font-bold tracking-tight text-purple-700 dark:text-purple-400 text-3xl sm:text-5xl font-serif">
                     We're Here to Help
                 </h2>
                 <p className="mx-auto mt-4 max-w-3xl text-xl text-gray-600 dark:text-slate-400">

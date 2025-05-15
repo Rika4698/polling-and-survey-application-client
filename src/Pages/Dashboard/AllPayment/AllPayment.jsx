@@ -23,7 +23,7 @@ const AllPayment = () => {
     return (
         <div>
             <div className=" my-4">
-                <h2 className="text-4xl text-center text-blue-800 dark:text-white font-serif font-bold">All Payments </h2>
+                <h2 className="text-4xl text-center text-blue-800 dark:text-blue-300 font-serif font-bold">All Payments </h2>
                 <h2 className="text-lg   text-sky-600 dark:text-sky-400 font-serif font-bold mt-6 text-center md:text-left">Total User Payment: {allPay.length}</h2>
             </div>
           

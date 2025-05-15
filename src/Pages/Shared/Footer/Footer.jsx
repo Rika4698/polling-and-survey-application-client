@@ -9,15 +9,15 @@ const Footer = () => {
 
 
 
-<footer className="w-full bg-slate-50 dark:bg-slate-700  overflow-x-hidden">
+<footer className="w-full bg-slate-50 dark:bg-slate-800  overflow-x-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           
             <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3 gap-y-8 md:gap-8 py-10 max-w-sm mx-auto sm:max-w-3xl lg:max-w-full">
                 <div className="col-span-full mb-10 lg:col-span-2 lg:mb-0">
                     <Link to="/"  className="flex justify-center lg:justify-start">
-                    <img className="  w-24 md:w-28 lg:w-32 lg:ml-8 " src="https://i.ibb.co/qMNMJSM/survey-swift-high-resolution-logo-transparent.png" alt="" />
+                    <img className="  w-24 h-[80px]  md:w-24 lg:h-[80px]  " src="https://i.ibb.co/qMNMJSM/survey-swift-high-resolution-logo-transparent.png" alt="" />
                     </Link>
-                    <p className="py-8 text-sm text-gray-500 lg:max-w-xs text-center lg:text-left dark:text-gray-300">ACME Industries Ltd. <br/>Providing reliable tech since 1992</p>
+                    <p className="py-4 text-sm text-gray-500 lg:max-w-xs text-center lg:text-left dark:text-gray-300">ACME Industries Ltd. <br/>Providing reliable tech since 1992</p>
                     <Link to="/contact">
                     <button   className=" py-2.5 px-5 h-9 block w-fit bg-indigo-600 rounded-full shadow-sm text-xs text-white mx-auto transition-all  duration-500 hover:bg-indigo-700 lg:mx-0 dark:bg-indigo-500 dark:hover:bg-indigo-600">
                         Contact us
@@ -64,7 +64,7 @@ const Footer = () => {
 
             <div className="py-7 border-t border-gray-200">
                 <div className="flex items-center justify-center flex-col lg:justify-between lg:flex-row">
-                    <span className="text-sm text-gray-500 dark:text-gray-400">©Copyright 2024, All rights reserved.</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">©Copyright 2025, All rights reserved.</span>
                     <div className="flex mt-4 space-x-4 sm:justify-center lg:mt-0 ">
                         <a href="javascript:;"  className="w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#33CCFF] hover:bg-gray-900">
                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">

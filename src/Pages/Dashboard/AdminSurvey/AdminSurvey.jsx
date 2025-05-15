@@ -169,7 +169,7 @@ const handlePublish = item =>{
 
     return (
         <div>
-            <h2 className="text-center text-blue-600 dark:text-white font-serif text-4xl font-semibold my-6">All Survey</h2>
+            <h2 className="text-center text-blue-600 dark:text-blue-300 font-serif text-4xl font-semibold my-6">All Survey</h2>
             {/* <div className="mt-4">
                 {
                     survey.map((item) => <div key={item._id}>

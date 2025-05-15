@@ -115,7 +115,7 @@ const AllUsers = () => {
     return (
         <div>
         <div className="my-4 text-center">
-          <h2 className="text-3xl text-emerald-600 dark:text-emerald-300 font-serif font-bold">
+          <h2 className="text-3xl lg:text-4xl text-blue-600 dark:text-blue-300 font-serif font-bold">
             Manage Users
           </h2>
           <h2 className="text-lg text-black dark:text-white font-serif font-bold pt-4">

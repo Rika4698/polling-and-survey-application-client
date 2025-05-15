@@ -204,7 +204,7 @@ console.log(errors);
 
     <div className="flex justify-center items-center min-h-screen    ">
   <form  onSubmit={handleSubmit(onSubmit)} id="productForm" className="  rounded-lg py-2 w-full max-w-2xl md:max-w-4xl xl:max-w-6xl my- lg:my- shadow-slate-700  ">
-    <h2 className="text-4xl font-bold font-serif text-lime-600 dark:text-lime-300 mb-6 text-center mt-  ">Update Survey</h2>
+    <h2 className="text-4xl font-bold font-serif text-purple-600 dark:text-purple-300 mb-6 text-center mt-  ">Update Survey</h2>
 
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4  mt-16 mx- ">
      
@@ -313,7 +313,7 @@ console.log(errors);
     
       <button
         type="submit"
-        className="w-60  text-2xl bg-lime-600  dark:bg-lime-500 border-2 border-lime-800 dark:border-lime-900  text-white font-bold py-4 px-6  shadow-lg transform duration-300 hover:scale-110  rounded-2xl     transition-all hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_green] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none "
+        className="w-60  text-2xl bg-purple-600  dark:bg-purple-500 border-2 border-purple-800 dark:border-purple-900  text-white font-bold py-4 px-6  shadow-lg transform duration-300 hover:scale-110  rounded-2xl     transition-all hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_purple] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none "
       >
         Update
       </button> 

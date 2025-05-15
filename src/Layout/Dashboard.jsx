@@ -146,6 +146,7 @@ const Dashboard = () => {
             className="sr-only"
             checked={isDarkMode}
             onChange={() => setIsDarkMode(!isDarkMode)}
+            onClick={() => setIsOpen(false)}
           />
           <div className={`block w-[75px] h-8 rounded-full transition-all duration-300 ease-in-out ${isDarkMode ? 'bg-blue-500 shadow-inner' : 'bg-gray-300 shadow-md'}`}></div>
           <div className={`absolute left-1 top-1 w-6 h-6 rounded-full bg-white transition-transform duration-300 ease-in-out ${isDarkMode ? 'translate-x-11' : ''}`}></div>
@@ -160,35 +161,42 @@ const Dashboard = () => {
       <nav className="space-y-6  ">
           {isAdmin && (
             <>
-             <li> <NavLink to="/" className={({ isActive }) =>
+             <li className="mx-3"> <NavLink to="/" onClick={() => setIsOpen(false)} className={({ isActive }) =>
       `p-3 rounded-lg flex items-center  gap-3 transition cursor-pointer hover:scale-105 ${
         isActive ? "bg-blue-600 text-white dark:bg-slate-500 scale-105 dark:text-slate-100" : "bg-blue-200 hover:bg-blue-600 hover:text-white dark:bg-slate-300  dark:hover:bg-slate-500 dark:hover:text-white     "
       }`}>
                 <Home className="inline mr-2" /> Home
               </NavLink></li>
 
-             <li> <NavLink to="/dashboard/user"className={({ isActive }) =>
+
+             <li className="mx-3"> <NavLink to="/dashboard/user" onClick={() => setIsOpen(false)} className={({ isActive }) =>
       `p-3 rounded-lg flex items-center gap-3 transition cursor-pointer hover:scale-105 ${
         isActive ? "bg-blue-600 text-white dark:bg-slate-500 scale-105 dark:text-slate-100" : "bg-blue-200 hover:bg-blue-600 hover:text-white dark:bg-slate-300  dark:hover:bg-slate-500 dark:hover:text-white     "
       }`}>
                 <Users className="inline mr-2" /> All Users
               </NavLink></li>
 
-              <li> <NavLink to="/dashboard/survey" className={({ isActive }) =>
+
+
+              <li className="mx-3"> <NavLink to="/dashboard/survey" onClick={() => setIsOpen(false)} className={({ isActive }) =>
       `p-3 rounded-lg flex items-center gap-3 transition cursor-pointer hover:scale-105 ${
         isActive ? "bg-blue-600 text-white dark:bg-slate-500 scale-105 dark:text-slate-100" : "bg-blue-200 hover:bg-blue-600 hover:text-white dark:bg-slate-300  dark:hover:bg-slate-500 dark:hover:text-white     "
       }`}>
                 <FileText className="inline mr-2" /> All Surveys
               </NavLink></li>
 
-             <li> <NavLink to="/dashboard/allPayment" className={({ isActive }) =>
+
+
+             <li className="mx-3"> <NavLink to="/dashboard/allPayment" onClick={() => setIsOpen(false)} className={({ isActive }) =>
       `p-3 rounded-lg flex items-center gap-3 transition cursor-pointer hover:scale-105 ${
         isActive ? "bg-blue-600 text-white dark:bg-slate-500 scale-105 dark:text-slate-100" : "bg-blue-200 hover:bg-blue-600 hover:text-white dark:bg-slate-300  dark:hover:bg-slate-500 dark:hover:text-white     "
       }`}>
                 <DollarSign className="inline mr-2" /> All Payments
               </NavLink></li>
 
-             <li> <NavLink to="/dashboard/allResponse" className={({ isActive }) =>
+
+
+             <li className="mx-2"> <NavLink to="/dashboard/allResponse" onClick={() => setIsOpen(false)} className={({ isActive }) =>
       `p-3 rounded-lg flex items-center gap-3 transition cursor-pointer hover:scale-105 ${
         isActive ? "bg-blue-600 text-white dark:bg-slate-500 scale-105 dark:text-slate-100" : "bg-blue-200 hover:bg-blue-600 hover:text-white dark:bg-slate-300  dark:hover:bg-slate-500 dark:hover:text-white     "
       }`}>
@@ -197,44 +205,62 @@ const Dashboard = () => {
             </>
           )}
 
+
+
           {isSurveyor && (
             <>
-             <li className=""> <NavLink to="/" className={({ isActive }) =>
+             <li className=" mx-3"> <NavLink to="/"  onClick={() => setIsOpen(false)} className={({ isActive }) =>
       `p-3 rounded-lg flex items-center gap-3 transition cursor-pointer hover:scale-105 ${
         isActive ? "bg-purple-600 text-white dark:bg-zinc-500 scale-105 dark:text-slate-100" : "bg-purple-200 hover:bg-purple-600 hover:text-white dark:bg-zinc-300  dark:hover:bg-zinc-500 dark:hover:text-white     "
       }`}   >
                 <Home className="inline mr-2" /> Home
               </NavLink></li>
-              <li> <NavLink to="/dashboard/surveyor" className={({ isActive }) =>
+
+
+              <li className=" mx-3"> <NavLink to="/dashboard/surveyor" onClick={() => setIsOpen(false)} className={({ isActive }) =>
       `p-3 rounded-lg flex items-center gap-3 transition cursor-pointer hover:scale-105 ${
         isActive ? "bg-purple-600 text-white dark:bg-zinc-500 scale-105 dark:text-slate-100" : "bg-purple-200 hover:bg-purple-600 hover:text-white dark:bg-zinc-300  dark:hover:bg-zinc-500 dark:hover:text-white     "
       }`} >
                 <FileText className="inline mr-2" /> Create Survey
               </NavLink></li>
-              <li> <NavLink to="/dashboard/list" className={({ isActive }) =>
+
+
+              <li className=" mx-3"> <NavLink to="/dashboard/list" onClick={() => setIsOpen(false)} className={({ isActive }) =>
       `p-3 rounded-lg flex items-center gap-3 transition cursor-pointer hover:scale-105 ${
         isActive ? "bg-purple-600 text-white dark:bg-zinc-500 scale-105 dark:text-slate-100" : "bg-purple-200 hover:bg-purple-600 hover:text-white dark:bg-zinc-300  dark:hover:bg-zinc-500 dark:hover:text-white     "
       }`} >
                 <FileText className="inline mr-2" /> Survey List
               </NavLink></li>
-              <li> <NavLink to="/dashboard/feedback" className={({ isActive }) =>
+
+
+
+              <li className=" mx-3"> <NavLink to="/dashboard/feedback" onClick={() => setIsOpen(false)} className={({ isActive }) =>
       `p-3 rounded-lg flex items-center gap-3 transition cursor-pointer hover:scale-105 ${
         isActive ? "bg-purple-600 text-white dark:bg-zinc-500 scale-105 dark:text-slate-100" : "bg-purple-200 hover:bg-purple-600 hover:text-white dark:bg-zinc-300  dark:hover:bg-zinc-500 dark:hover:text-white     "
       }`}   >
                 <FileText className="inline mr-2" /> Admin Feedback
               </NavLink></li>
-              <li>  <NavLink to="/dashboard/userFeedback" className={({ isActive }) =>
+
+
+
+
+              <li className=" mx-3">  <NavLink to="/dashboard/userFeedback"  onClick={() => setIsOpen(false)} className={({ isActive }) =>
       `p-3 rounded-lg flex items-center gap-3 transition cursor-pointer hover:scale-105 ${
         isActive ? "bg-purple-600 text-white dark:bg-zinc-500 scale-105 dark:text-slate-100" : "bg-purple-200 hover:bg-purple-600 hover:text-white dark:bg-zinc-300  dark:hover:bg-zinc-500 dark:hover:text-white     "
       }`}   >
                 <FileText className="inline mr-2" /> User Feedback
               </NavLink></li>
-              <li>  <NavLink to="/dashboard/surveyResponse" className={({ isActive }) =>
+
+
+
+              <li className=" mx-2">  <NavLink to="/dashboard/surveyResponse"  onClick={() => setIsOpen(false)} className={({ isActive }) =>
       `p-3 rounded-lg flex items-center gap-3 transition cursor-pointer hover:scale-105 ${
         isActive ? "bg-purple-600 text-white dark:bg-zinc-500 scale-105 dark:text-slate-100" : "bg-purple-200 hover:bg-purple-600 hover:text-white dark:bg-zinc-300  dark:hover:bg-zinc-500 dark:hover:text-white     "
       }`}  >
                 <FileText className="inline mr-2" /> Survey Responses
               </NavLink></li>
+
+
             </>
           )}
         </nav>

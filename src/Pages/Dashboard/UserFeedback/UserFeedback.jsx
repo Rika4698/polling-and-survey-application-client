@@ -56,7 +56,7 @@ const UserFeedback = () => {
     }
     return (
       <div>
-        <h2 className="text-4xl font-bold text-center my-10 font-serif text-orange-700 dark:text-orange-400">
+        <h2 className="text-4xl font-bold text-center my-10 font-serif text-purple-700 dark:text-purple-300">
          User FeedBack
         </h2>
         {/* <div className="overflow-x-auto mt-10 max-w-7xl mx-auto">
@@ -143,7 +143,7 @@ const UserFeedback = () => {
 
 <div className="overflow-x-auto  my-8 border ">
    
-        <table className="min-w-full divide-y  bg-orange-200 dark:bg-white divide-gray-200">
+        <table className="min-w-full divide-y  bg-purple-200 dark:bg-white divide-gray-200">
     <thead>
         <tr className="">
             <th className="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">#</th>
@@ -182,7 +182,7 @@ const UserFeedback = () => {
             
                 <button
         onClick={() => setIsOpen(true)}
-        className="bg-gradient-to-r from-yellow-400 to-orange-600 dark:from-orange-600 dark:to-yellow-600 text-white font-medium px-4 py-2 rounded hover:opacity-90 transition-opacity"
+        className="bg-gradient-to-r from-blue-400 to-purple-600 dark:from-purple-600 dark:to-blue-600 text-white font-medium px-4 py-2 rounded hover:opacity-90 transition-opacity"
       >
         Feedback
       </button>
@@ -217,7 +217,7 @@ const UserFeedback = () => {
               animate={{ scale: 1, rotate: "0deg" }}
               exit={{ scale: 0, rotate: "0deg" }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-gradient-to-br from-yellow-400 to-orange-500 dark:from-gray-400 dark:to-zinc-600 text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
+              className="bg-gradient-to-br from-blue-400 to-purple-500 dark:from-gray-400 dark:to-zinc-600 text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
             >
               <FiAlertCircle className="text-white/10 rotate-12 text-[250px] absolute z-0 -top-24 -left-24" />
               <div className="relative z-10 ">
@@ -260,7 +260,7 @@ const UserFeedback = () => {
                   </button>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="bg-white hover:opacity-90 transition-opacity text-orange-600 dark:text-black font-semibold w-56 py-2 rounded mt-3"
+                    className="bg-white hover:opacity-90 transition-opacity text-blue-600 dark:text-black font-semibold w-56 py-2 rounded mt-3"
                   >
                   Close!
                   </button>
