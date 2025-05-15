@@ -38,7 +38,7 @@ const Navbar = () => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     // const [isMenuOpen, setMenuOpen] = useState(false);
     const handleOutsideClick = (event) => {
-      if (event.target.closest("#dropdownMenu")) {
+      if (!event.target.closest("#dropdownMenu")) {
         setDropdownOpen(false); // Close dropdown when clicking outside
       }
     };
@@ -198,11 +198,12 @@ const Navbar = () => {
                 <button
                   type="button"
                   className=" flex text-sm bg-gray-800 rounded-full focus:ring-4 transition-transform duration-300 hover:scale-110 focus:ring-gray-300   dark:focus:ring-gray-600"
-                  onClick={() => setDropdownOpen((prev) => !prev)}
+                  onClick={(e) => {e.stopPropagation();
+                     setDropdownOpen((prev) => !prev);}}
                 >
                   <span className="sr-only">Open user menu</span>
                   <img 
-                    className="btn-circle w-12 h-12 lg:w-14 lg:h-14 rounded-full"
+                    className="btn-circle w-12 h-12 lg:w-12 lg:h-12 rounded-full"
                     src={user.photoURL}
                     alt=""
                   />
@@ -210,7 +211,7 @@ const Navbar = () => {
 
                 {/* User Dropdown Menu */}
                 {isDropdownOpen && (
-                  <div className="z-50 absolute -right-4 top-16   bg-white divide-y divide-gray-100 rounded-lg shadow-lg shadow-slate-600 drop-shadow-lg dark:bg-gray-700 dark:divide-gray-200">
+                  <div id="dropdownMenu" className="z-50 absolute -right-4 top-16   bg-white divide-y divide-gray-100 rounded-lg shadow-lg shadow-slate-600 drop-shadow-lg dark:bg-gray-700 dark:divide-gray-200">
                       <div className="px-4 py-3 ">
                 <span className="block text-base xl:text-lg font-bold text-gray-900 dark:text-white">
                 {user.displayName}
