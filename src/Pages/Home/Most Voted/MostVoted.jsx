@@ -85,7 +85,7 @@ const MostVoted = () => {
       <h1 className="my-14 text-center font-bold text-3xl md:text-5xl  font-serif text-blue-600 dark:text-blue-500"><span className="text-purple-700 dark:text-purple-400 ">Most Voted</span> Surveys</h1>
 
       {/* Responsive Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 mx-auto">
         {survey.length > 0 ? survey.map((survey) => (
           <div key={survey._id}  className="bg-slate-50 dark:bg-slate-500 rounded-2xl shadow-lg overflow-hidden  flex flex-col h-full
                  dark:bg-shadesOfBlue    group hover:ring-2 hover:ring-purple-500 dark:hover:ring-white transform duration-500 hover:scale-105 hover:shadow-xl">
