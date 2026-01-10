@@ -10,7 +10,7 @@ const UpcomingCategory = () => {
             image:"https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=400&h=300&fit=crop",
             bgGradient:"from-purple-400 to-purple-500",
         },
-         {
+    {
       id: 2,
       name: "Entertainment",
       icon: Calendar,
@@ -51,11 +51,11 @@ const UpcomingCategory = () => {
     },
     ]
     return (
-        <div className='bg-gradient-to-br from-purple-50 to-white py-16 px-4 font-serif'>
+        <div className='bg-white dark:bg-zinc-700 py-16 px-4 font-serif'>
             <div className=' max-w-7xl mx-auto'>
                 <div className='text-center mb-12'>
-                    <h2 className='text-3xl md:text-3xl lg:text-5xl font-bold text-purple-700 mb-4'>Upcoming Survey Categories</h2>
-                    <p className='text-sm text-gray-500 max-w-2xl mx-auto'>Explore diverse survey topics and share your valuable opinions</p>
+                    <h2 className='text-3xl md:text-3xl lg:text-5xl font-bold text-purple-700 dark:text-purple-400 mb-4'>Upcoming Survey Categories</h2>
+                    <p className='text-sm text-gray-500 dark:text-slate-300 max-w-2xl mx-auto'>Explore diverse survey topics and share your valuable opinions</p>
 
                 </div>
 
@@ -66,7 +66,7 @@ const UpcomingCategory = () => {
                             return(
                             <div key={category.id} className='group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer'>
                             <div className='relative h-64 overflow-hidden'>
-                                <img src={category.image} alt="image" className='w-full h-ful object-cover group-hover:scale-110 transition-transform duration-500 '/>
+                                <img src={category.image} alt={category.name} className='w-full h-ful object-cover group-hover:scale-110 transition-transform duration-500 '/>
 
                                 <div className={`absolute inset-0 bg-gradient-to-t ${category.bgGradient} opacity-30 group-hover:opacity-50 transition-opacity duration-300`}></div>
 
