@@ -54,7 +54,7 @@ const UpcomingCategory = () => {
         <div className='bg-white dark:bg-zinc-700 py-16 px-4 font-serif'>
             <div className=' max-w-7xl mx-auto'>
                 <div className='text-center mb-12'>
-                    <h2 className='text-3xl md:text-3xl lg:text-5xl font-bold text-purple-700 dark:text-purple-400 mb-4'>Upcoming Survey Categories</h2>
+                    <h2 className='text-3xl md:text-3xl lg:text-5xl font-bold text-blue-600 dark:text-blue-500 mb-4'>Upcoming <span className='text-purple-700 dark:text-purple-400'>Survey Categories</span></h2>
                     <p className='text-sm text-gray-500 dark:text-slate-300 max-w-2xl mx-auto'>Explore diverse survey topics and share your valuable opinions</p>
 
                 </div>
@@ -85,7 +85,8 @@ const UpcomingCategory = () => {
 
                             </div>
                             </div>
-                        )})
+                        );
+                    })
                     }
 
                 </div>

@@ -72,7 +72,7 @@ const Testimonial = () => {
                             className="testimonial-card w-full flex-shrink-0 snap-start px-4"
                             style={{ display: isVisible ? 'block' : 'none' }}
                         >
-                            <div className="bg-purple-100 p-8 rounded-lg shadow-md mx-auto max-w-xl  border">
+                            <div className="bg-purple-100 p-8 rounded-lg shadow-md mx-auto max-w-3xl  border">
                                 <p
                                     className="text-gray-600 text-lg mb-4"
                                     style={isVisible ? fadeInUp : {}}
