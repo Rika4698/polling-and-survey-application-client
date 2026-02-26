@@ -129,8 +129,18 @@ px-4 transition-colors duration-300">
       />
     </div>
 
+
     {/* Right Form Section */}
     <div className="p-8">
+      <div className="flex justify-start mb-4">
+  <Link
+    to="/"
+    className="flex items-center gap-2 text-gray-700 dark:text-gray-300 
+    hover:text-blue-600 dark:hover:text-blue-400 transition font-semibold"
+  >
+    ← Back Home
+  </Link>
+</div>
       <h1 className="text-3xl font-bold text-center mb-6 
       text-gray-800 dark:text-white transition-colors duration-300">
         Login Now

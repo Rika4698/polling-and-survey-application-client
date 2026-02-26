@@ -117,62 +117,172 @@ const Registration = () => {
         e.target.reset() 
     };
     return (
-        <div className="min-h-screen">
-            <div className=" bg-gradient-to-r from-violet-50 to-orange-200 max-w-screen-md mx-auto pt-14 shadow-2xl lg:my-8 xl:max-w-screen-lg">
-  <div className="hero-content flex-col lg:flex-row ">
-  <div className="hidden lg:flex lg:w-1/4 xl:w-2/5">
-      
-      <img src="https://i.ibb.co/0G6QjbV/Forms-amico.png" alt="" />
-     </div>
-    
-    <div className="card flex-shrink-0  w-full max-w-sm   ">
-    <div className="text-center mt-8">
-      <h1 className="text-3xl font-bold text-teal-600">Registration Form</h1>
-     <p className="mt-4">Enter your details to registration</p>
+       <div className="min-h-screen flex items-center justify-center 
+bg-gradient-to-br from-violet-200 to-orange-200 
+dark:from-gray-900 dark:to-gray-800
+px-4 transition-colors duration-300">
+
+  <div className="w-full max-w-5xl 
+  bg-white dark:bg-gray-900 
+  shadow-2xl rounded-2xl overflow-hidden 
+  grid grid-cols-1 lg:grid-cols-2
+  transition-colors duration-300 my-8">
+
+    {/* Left Image Section */}
+    <div className="hidden lg:flex items-center justify-center 
+    bg-orange-100 dark:bg-gray-800 
+    p-8 transition-colors duration-300">
+      <img
+        src="https://i.ibb.co/0G6QjbV/Forms-amico.png"
+        alt="Register Illustration"
+        className="w-full max-w-md"
+      />
     </div>
-      <form onSubmit={handleRegisterForm} className="card-body">
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text font-bold">User Name</span>
+
+    {/* Right Form Section */}
+    <div className="p-8">
+
+      <div className="flex justify-start mb-4">
+  <Link
+    to="/"
+    className="flex items-center gap-2 text-gray-700 dark:text-gray-300 
+    hover:text-purple-600 dark:hover:text-purple-400 transition font-semibold"
+  >
+    ← Back Home
+  </Link>
+</div>
+
+      <h1 className="text-3xl font-bold text-center 
+      text-purple-600 dark:text-purple-400 mb-2">
+        Registration Form
+      </h1>
+
+      <p className="text-center 
+      text-gray-600 dark:text-gray-300 mb-6">
+        Enter your details to create an account
+      </p>
+
+      <form onSubmit={handleRegisterForm} className="space-y-4">
+
+        <div>
+          <label className="font-semibold 
+          text-gray-700 dark:text-gray-300">
+            User Name
           </label>
-          <input type="text" placeholder="Name" className="input input-bordered" required name="name"/>
+          <input
+            type="text"
+            name="name"
+            required
+            placeholder="Enter your name"
+            className="input input-bordered w-full mt-1
+            bg-white dark:bg-gray-800
+            text-black dark:text-white
+            border-gray-300 dark:border-gray-600"
+          />
         </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text font-bold">Photo URL</span>
+
+        <div>
+          <label className="font-semibold 
+          text-gray-700 dark:text-gray-300">
+            Photo URL
           </label>
-          <input type="url" placeholder="Photo URL" className="input input-bordered" required name="photo" />
+          <input
+            type="url"
+            name="photo"
+            required
+            placeholder="Enter photo URL"
+            className="input input-bordered w-full mt-1
+            bg-white dark:bg-gray-800
+            text-black dark:text-white
+            border-gray-300 dark:border-gray-600"
+          />
         </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text font-bold">Email</span>
+
+        <div>
+          <label className="font-semibold 
+          text-gray-700 dark:text-gray-300">
+            Email
           </label>
-          <input type="email" placeholder="email" className="input input-bordered" required name="email" />
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="Enter your email"
+            className="input input-bordered w-full mt-1
+            bg-white dark:bg-gray-800
+            text-black dark:text-white
+            border-gray-300 dark:border-gray-600"
+          />
         </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text font-bold">Password</span>
+
+        <div>
+          <label className="font-semibold 
+          text-gray-700 dark:text-gray-300">
+            Password
           </label>
-          <input type="password" placeholder="password" className="input input-bordered" required name="password"/>
-         
+          <input
+            type="password"
+            name="password"
+            required
+            placeholder="Enter your password"
+            className="input input-bordered w-full mt-1
+            bg-white dark:bg-gray-800
+            text-black dark:text-white
+            border-gray-300 dark:border-gray-600"
+          />
         </div>
-        { errormessage && <p className="text-red-700 text-base text-center ">{errormessage}</p>}
-       
-        <div className="form-control mt-6">
-          <button  className="btn bg-purple-400 capitalize text-lg text-white">Registration</button>
-        </div>
-        <h3 className="text-center mt-4 font-semibold">Already have an account? <Link to="/login" className="text-blue-700 font-extrabold"> Login</Link></h3>
-       
-      </form>
-      <button onClick={handleGoogleAccount}  className="  flex gap-2 bg-blue-200 rounded-full w-56 mx-10 mb-8 outline hover:outline-4  outline-slate-100">
-            <img className="rounded-full w-14 " src="https://i.ibb.co/41Gt5P3/178-1780776-googles-new-dataset-search-aims-to-assist-researchers.jpg" alt="" />
-            <h3 className="mt-3 text-base  text-blue-600 font-semibold">Sign in with Google </h3>
+
+        {errormessage && (
+          <p className="text-red-600 text-sm text-center">
+            {errormessage}
+          </p>
+        )}
+
+        <button
+          type="submit"
+          className="w-full py-2 rounded-lg 
+          bg-gradient-to-r from-purple-500 to-orange-500
+          dark:from-purple-600 dark:to-orange-600
+          text-white font-semibold 
+          hover:scale-105 transition">
+          Registration
         </button>
-    
+      </form>
+
+      <p className="text-center mt-4 
+      text-gray-700 dark:text-gray-300">
+        Already have an account?{" "}
+        <Link
+          to="/login"
+          className="text-blue-600 dark:text-blue-400 
+          font-bold hover:underline">
+          Login
+        </Link>
+      </p>
+
+      {/* Google Register */}
+      <div className="mt-6 flex justify-center">
+        <button
+          onClick={handleGoogleAccount}
+          className="flex items-center gap-3 
+          bg-gray-100 dark:bg-gray-700
+          px-4 py-2 rounded-full shadow 
+          hover:shadow-lg transition">
+          <img
+            src="https://i.ibb.co/41Gt5P3/178-1780776-googles-new-dataset-search-aims-to-assist-researchers.jpg"
+            alt="Google"
+            className="w-8 h-8 rounded-full"
+          />
+          <span className="font-semibold 
+          text-gray-700 dark:text-white">
+            Sign up with Google
+          </span>
+        </button>
+      </div>
+
     </div>
   </div>
 </div>
-        </div>
     );
 };
 
