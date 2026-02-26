@@ -84,45 +84,161 @@ signIn(email,password)
 e.target.reset()
 }
     
+const handleLoginWithCredentials = (email, password) => {
+  setErrorMessage("");
+
+  signIn(email, password)
+    .then((result) => {
+      console.log(result.user);
+      swal({
+        text: "Login successfully",
+        icon: "success",
+        timer: 1600,
+      });
+
+      navigate(location?.state ? location.state : "/");
+    })
+    .catch(() => {
+      setErrorMessage("Email and Password does not match!");
+
+      swal({
+        text: "Invalid Login",
+        icon: "warning",
+      });
+    });
+};
     return (
         
-        <div className="min-h-screen">
-           <div className="max-w-screen-md mx-auto pt-14 bg-violet-300 shadow-2xl lg:my-8 xl:max-w-screen-lg min-h-screen">
-  <div className="hero-content flex-col lg:flex-row">
-    <div className="hidden lg:flex lg:w-2/5 xl:w-2/5">
-      
-     <img src="https://i.ibb.co/8BKdZXc/Security-On-amico.png" alt="" />
+   <div className="min-h-screen flex items-center justify-center 
+bg-gradient-to-br from-violet-200 to-violet-400 
+dark:from-gray-900 dark:to-gray-800 
+px-4 transition-colors duration-300">
+
+  <div className="w-full max-w-5xl 
+  bg-white dark:bg-gray-900 
+  shadow-2xl rounded-2xl overflow-hidden 
+  grid grid-cols-1 lg:grid-cols-2 transition-colors duration-300 my-8">
+
+    {/* Left Image Section */}
+    <div className="hidden lg:flex items-center justify-center 
+    bg-violet-100 dark:bg-gray-800 p-8 transition-colors duration-300">
+      <img
+        src="https://i.ibb.co/8BKdZXc/Security-On-amico.png"
+        alt="Login Illustration"
+        className="w-full max-w-md"
+      />
     </div>
-    <div className="card flex-shrink-0 w-full max-w-sm  bg-violet-300">
-      <form onSubmit={handleLogin} className="card-body">
-      <h1 className="text-3xl text-center font-bold">Login now!</h1>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text font-bold">Email</span>
+
+    {/* Right Form Section */}
+    <div className="p-8">
+      <h1 className="text-3xl font-bold text-center mb-6 
+      text-gray-800 dark:text-white transition-colors duration-300">
+        Login Now
+      </h1>
+
+      <form onSubmit={handleLogin} className="space-y-4">
+
+        <div>
+          <label className="font-semibold text-gray-700 dark:text-gray-300">
+            Email
           </label>
-          <input type="email" placeholder="email" className="input input-bordered" required name="email" />
+          <input
+            type="email"
+            name="email"
+            required
+            className="input input-bordered w-full mt-1 
+            bg-white dark:bg-gray-800 
+            text-black dark:text-white 
+            border-gray-300 dark:border-gray-600"
+            placeholder="Enter your email"
+          />
         </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text font-bold">Password</span>
+
+        <div>
+          <label className="font-semibold text-gray-700 dark:text-gray-300">
+            Password
           </label>
-          <input type="password" placeholder="password" className="input input-bordered" required name="password" />
-          <p className="text-red-700 text-base">{errormessage}</p> 
+          <input
+            type="password"
+            name="password"
+            required
+            className="input input-bordered w-full mt-1 
+            bg-white dark:bg-gray-800 
+            text-black dark:text-white 
+            border-gray-300 dark:border-gray-600"
+            placeholder="Enter your password"
+          />
+          <p className="text-red-600 text-sm mt-1">{errormessage}</p>
         </div>
-        <div className="form-control mt-6">
-          <button className="btn bg-gradient-to-r from-green-300 to-blue-700  text-lg text-white">Login</button>
-        </div>
-        <h3 className="text-center font-bold mt-4">Do not have an account? <Link to="/register" className="text-lime-600 font-extrabold">Registration</Link></h3>
-       
-      </form>
-      <button onClick={handleGoogleAccount}  className="  flex gap-2 bg-blue-200 rounded-full w-56 mx-10 mb-6  outline hover:outline-4  outline-slate-100">
-            <img className="rounded-full w-14 " src="https://i.ibb.co/41Gt5P3/178-1780776-googles-new-dataset-search-aims-to-assist-researchers.jpg" alt="" />
-            <h3 className="mt-3 text-base text-blue-600 font-semibold">Sign in with Google </h3>
+
+        <button className="w-full py-2 rounded-lg 
+        bg-gradient-to-r from-green-400 to-blue-600 
+        dark:from-green-500 dark:to-blue-700 
+        text-white font-semibold 
+        hover:scale-105 transition">
+          Login
         </button>
+      </form>
+
+      <p className="text-center mt-4 text-gray-700 dark:text-gray-300">
+        Do not have an account?{" "}
+        <Link
+          to="/register"
+          className="text-blue-600 dark:text-blue-400 font-bold hover:underline"
+        >
+          Register
+        </Link>
+      </p>
+
+      {/* Demo Buttons */}
+      <div className="mt-6 space-y-3">
+        <button
+          onClick={() => handleLoginWithCredentials("person12@gmail.com", "*Person4")}
+          className="w-full bg-sky-600 dark:bg-sky-700 
+          text-white py-2 rounded-lg 
+          hover:bg-sky-700 dark:hover:bg-sky-800 transition">
+          Demo Login as Admin
+        </button>
+
+        <button
+          onClick={() => handleLoginWithCredentials("person@gmail.com", "!Abcdefg")}
+          className="w-full bg-purple-600 dark:bg-purple-700 
+          text-white py-2 rounded-lg 
+          hover:bg-purple-700 dark:hover:bg-purple-800 transition">
+          Demo Login as Surveyor
+        </button>
+
+        {/* <button
+          onClick={() => handleLoginWithCredentials("Karim12@gmail.com", "*Karim12")}
+          className="w-full bg-green-600 dark:bg-green-700 
+          text-white py-2 rounded-lg 
+          hover:bg-green-700 dark:hover:bg-green-800 transition">
+          Demo Login as Receiver
+        </button> */}
+      </div>
+
+      {/* Google Login */}
+      <div className="mt-6 flex justify-center">
+        <button
+          onClick={handleGoogleAccount}
+          className="flex items-center gap-3 
+          bg-gray-100 dark:bg-gray-700 
+          px-4 py-2 rounded-full shadow 
+          hover:shadow-lg transition">
+          <img
+            src="https://i.ibb.co/41Gt5P3/178-1780776-googles-new-dataset-search-aims-to-assist-researchers.jpg"
+            alt="Google"
+            className="w-8 h-8 rounded-full"
+          />
+          <span className="font-semibold 
+          text-gray-700 dark:text-white">
+            Sign in with Google
+          </span>
+        </button>
+      </div>
     </div>
   </div>
-</div>  
-        </div>
+</div>
        
     );
 };
