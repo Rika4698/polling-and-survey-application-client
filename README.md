@@ -131,6 +131,14 @@ npm run dev
 > The application will be accessible at `http://localhost:5173`.
 
 ---
+
+## 👤 Author & Contact
+
+**Name: Sharmin Akter Reka**
+**Role: Frontend Developer**
+**Portfolio: https://sharmin-rika-portfolio.vercel.app/**
+
+---
 <div align="center">
   <p>Made with for interactive data collection.</p>
 </div>
