@@ -4,6 +4,7 @@ import Footer from "../Pages/Shared/Footer/Footer";
 import ScrollToTop from "../Pages/Home/Home/ScrollToTop";
 import { useEffect } from "react";
 import { useState } from "react";
+import LoadingLogo from "../Pages/Shared/LoadingLogo";
 
 const Main = () => {
     const location = useLocation();
@@ -48,8 +49,8 @@ useEffect(() => {
     return (
         <div>
              {isLoading ? (
-        <div className="flex justify-center items-center h-screen bg-white dark:bg-slate-800">
-        <span className="loading loading-spinner loading-lg text-gray-800 dark:text-gray-200"></span>
+        <div className="flex justify-center items-center h-screen   bg-white dark:bg-slate-900 ">
+       <LoadingLogo/>
     </div>
       ) : (<>
             <ScrollToTop></ScrollToTop>

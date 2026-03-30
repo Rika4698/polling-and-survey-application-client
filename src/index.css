@@ -1,11 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 body{
   width: 100%;
   overflow-x: hidden;
  overflow-y: scroll;
 }
+
+
 @keyframes fadeInUp {
   from {
       opacity: 0;
@@ -17,9 +21,12 @@ body{
   }
 }
 
+
 .quote-animation {
   animation: fadeInUp 0.8s ease-out;
 }
+
+
 
 @layer utilities {
   .after-line {
@@ -39,4 +46,15 @@ body{
     width: 100%;
     left: 0;
   }
+}
+
+
+@keyframes pulse-stagger{
+  0%, 100% { opacity: 0.3; transform: scale(0.95);}
+  50% { opacity: 1; transform: scale(1.05);}
+
+}
+
+.animate-pluse-stagger{
+  animation: pulse-stagger 2s infinite ease-in-out
 }
