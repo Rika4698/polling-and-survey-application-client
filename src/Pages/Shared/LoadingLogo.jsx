@@ -6,7 +6,7 @@ const LoadingLogo = () => {
             <div className="relative w-32 h-32">
 
                 <div className="absolute inset-0 border-2 border-purple-500/10 dark:border-purple-700/10 rounded-full animate-[ping_3s_infinite_ease-out]"></div>
-                <div className="absolute inset-0 border-4 border-purple-600/30 border-t-purple-600 dark:border-t-purple-400 rounded-full animate-spin"></div>
+                <div className="absolute inset-0 border-4 border-purple-600/30 dark:border-purple-400/30 border-t-purple-600 dark:border-t-purple-400 rounded-full animate-spin"></div>
 
                 <div className="absolute inset-0 flex items-center justify-center animate-pulse">
                     <img src="https://i.ibb.co/qMNMJSM/survey-swift-high-resolution-logo-transparent.png" 

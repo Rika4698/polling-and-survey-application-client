@@ -11,6 +11,14 @@ const Main = () => {
     // console.log(location);
     const [isLoading, setIsLoading] = useState(true);
     const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+  const theme = localStorage.getItem("theme");
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+  }
+}, []);
+
     useEffect(() => {
        
         const timer = setTimeout(() => {
