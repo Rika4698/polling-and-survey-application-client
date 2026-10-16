@@ -33,14 +33,6 @@ const Footer = () => {
                     </ul>
                 </div>
             
-                {/* <div class="lg:mx-auto text-left ">
-                    <h4 class="text-lg text-gray-900 font-medium mb-7">Products</h4>
-                    <ul class="text-sm  transition-all duration-500">
-                        <li class="mb-6"><a href="javascript:;"  class="text-gray-600 hover:text-gray-900">Figma UI System</a></li>
-                        <li class="mb-6"><a href="javascript:;"  class=" text-gray-600 hover:text-gray-900">Icons Assets</a></li>
-                        <li><a href="javascript:;"  class=" text-gray-600 hover:text-gray-900">Responsive Blocks</a></li>
-                    </ul>
-                </div> */}
                 
                 <div className="lg:mx-auto text-center ">
                     <h4 className="text-lg text-gray-900 font-medium mb-7 dark:text-gray-300">Support</h4>
