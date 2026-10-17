@@ -69,17 +69,6 @@ const handleSortByTotalVote = () => {
 
 
 
-
-//   const fetchSurveys = async () => {
-//     try {
-//       const response = await axiosPublic.get('/survey');
-//       console.log(response.data);
-//       setSurveys(response.data);
-//     } catch (error) {
-//       console.error('Error fetching surveys:', error);
-//     }
-//   };
-
    
   //       useEffect(() => {
   //   const filtered = surveys.filter(survey =>
