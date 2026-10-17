@@ -6,6 +6,7 @@ import useSurveyList from "../../hooks/useSurveyList";
 import { Link } from "react-router-dom";
 import { ThumbsUp, ThumbsDown, MessageCircle } from "lucide-react";
 import { LuVote } from "react-icons/lu";
+import LoadingLogo from "../Shared/LoadingLogo";
 
 const Surveys = () => {
     // const axiosPublic = useAxiosPublic();
@@ -133,7 +134,7 @@ const handleSortByTotalVote = () => {
 if (isLoading || isFetching ) {
   return (
       <div className="flex justify-center items-center h-screen bg-white dark:bg-zinc-700">
-      <span className="loading loading-spinner loading-lg text-gray-800 dark:text-gray-200"></span>
+   <LoadingLogo/>
   </div>
   );
 }
