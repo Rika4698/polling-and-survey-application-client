@@ -12,7 +12,7 @@ const ProUser = () => {
   // const bgColor = isDisabled ? 'bg-gray-400' : 'bg-purple-800';
   console.log(isPro);
     return (
-        <div className="mt-20 pb-16 bg-green-50 dark:bg-zinc-600 min-h-screen">
+        <div className="mt-20 pb-16 bg-blue-50 dark:bg-slate-800/90 min-h-screen">
          <div className="pt-10">
             <h2 className="text-4xl text-center font-serif text-purple-700 dark:text-purple-400 font-bold ">Become a  pro-user</h2></div>
             {/* <div className="grid grid-cols-1 mt-14 md:grid-cols-2 gap-8 my-6 lg:ml-8">
