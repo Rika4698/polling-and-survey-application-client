@@ -26,7 +26,7 @@ const Payment = () => {
     // console.log(user);
     return (
         <div >
-            <div className="mt-20 pb-36  mx-auto bg-white dark:bg-slate-600 min-h-[150px]">
+            <div className="mt-20 pb-36  mx-auto bg-blue-50 dark:bg-slate-800/90 min-h-[150px]">
                 {/* {check.map((item)=> */}
             <Elements  stripe={stripePromise} >
                 <h3 className="text-5xl text-purple-700 dark:text-purple-400 text-center underline font-bold pt-8 font-serif ">Payment</h3>
