@@ -6,7 +6,7 @@ const AboutUs = () => {
        
 
     
-    <div className="min-h-screen bg-lime-100 py-12 sm:py-16 lg:py-16 mt-20 overflow-x-hidden dark:bg-zinc-700">
+    <div className="min-h-screen bg-blue-50 dark:bg-slate-800/90 py-12 sm:py-16 lg:py-16 mt-20 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 min-h-screen">
         <div className="text-center mb-12">
           <h3 className="text-4xl font-serif font-semibold text-purple-700 dark:text-purple-400  mb-4 ">
@@ -45,7 +45,7 @@ const AboutUs = () => {
           </div>
         </div>
 
-        <div className="mt-12 text-center space-y-6 bg-slate-100 dark:bg-slate-700 ">
+        <div className="mt-12 text-center space-y-6 bg-slate-200 dark:bg-slate-700 ">
           <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium pt-3 dark:text-gray-300">
           Our application aims to provide an intuitive experience for both survey creators and respondents, ensuring easy access to valuable insights and data analysis. 📊
           </p>
