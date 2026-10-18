@@ -133,14 +133,14 @@ const handleSortByTotalVote = () => {
 // console.log(filteredSurveys[2].comments.length);
 if (isLoading || isFetching ) {
   return (
-      <div className="flex justify-center items-center h-screen bg-white dark:bg-zinc-700">
+      <div className="flex justify-center items-center h-screen bg-blue-50 dark:bg-slate-800/90">
    <LoadingLogo/>
   </div>
   );
 }
 // console.log(filteredSurveys.length);
     return (
-        <div className="mt-20  bg-white dark:bg-zinc-700 ">
+        <div className="mt-20  bg-blue-50 dark:bg-slate-800/90 ">
           <div className="pt-14 mb-12">
              <h1 className="text-center font-semibold font-serif text-5xl   text-purple-700 dark:text-purple-400">All Surveys</h1> 
              </div>
