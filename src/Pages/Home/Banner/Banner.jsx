@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 const Banner = () => {
     return (
         <div>
-           <div className="hero min-h-[500px] mt-20 " style={{backgroundImage: 'url(https://i.ibb.co/98C6Z4V/wepik-export-20231125040820ifpq.png)'}}>
+           <div className="hero min-h-[500px] mt-20 bg-center"
+  style={{
+    backgroundImage:
+      "url(https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1600&q=80)",
+  }}>
   <div className="hero-overlay bg-opacity-70"></div>
   <div className="hero-content text-center text-neutral-content">
     <div className="max-w-md lg:min-w-[700px] ">
