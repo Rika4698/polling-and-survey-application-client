@@ -123,7 +123,7 @@ px-4 transition-colors duration-300">
     <div className="hidden lg:flex items-center justify-center 
     bg-violet-100 dark:bg-gray-800 p-8 transition-colors duration-300">
       <img
-        src="https://i.ibb.co/8BKdZXc/Security-On-amico.png"
+        src="./login.png"
         alt="Login Illustration"
         className="w-full max-w-md"
       />

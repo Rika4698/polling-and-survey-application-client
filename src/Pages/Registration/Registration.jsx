@@ -133,7 +133,7 @@ px-4 transition-colors duration-300">
     bg-orange-100 dark:bg-gray-800 
     p-8 transition-colors duration-300">
       <img
-        src="https://i.ibb.co/0G6QjbV/Forms-amico.png"
+        src="./register.png"
         alt="Register Illustration"
         className="w-full max-w-md"
       />
