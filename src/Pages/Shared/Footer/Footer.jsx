@@ -15,7 +15,7 @@ const Footer = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3 gap-y-8 md:gap-8 py-10 max-w-sm mx-auto sm:max-w-3xl lg:max-w-full">
                 <div className="col-span-full mb-10 lg:col-span-2 lg:mb-0">
                     <Link to="/"  className="flex justify-center lg:justify-start">
-                    <img className="  w-24 h-[80px]  md:w-24 lg:h-[80px]  " src="https://i.ibb.co/qMNMJSM/survey-swift-high-resolution-logo-transparent.png" alt="" />
+                    <img className="  w-24 h-[80px]  md:w-24 lg:h-[80px]  " src="./logo.png" alt="" />
                     </Link>
                     <p className="py-4 text-sm text-gray-500 lg:max-w-xs text-center lg:text-left dark:text-gray-300">ACME Industries Ltd. <br/>Providing reliable tech since 1992</p>
                     <Link to="/contact">

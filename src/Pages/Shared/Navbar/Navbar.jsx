@@ -97,7 +97,7 @@ const Navbar = () => {
         <div className=" flex  items-center justify-between mx-auto p-3 lg:px-8 ">
           {/* Logo Section */}
           <Link to="/">
-              <img className=" w-[85px] h-[65px] ml-4 md:w-[85px] lg:w-[85px] lg:h-[65px] lg:ml-5  " src="https://i.ibb.co/qMNMJSM/survey-swift-high-resolution-logo-transparent.png" alt="" />
+              <img className=" w-[85px] h-[65px] ml-4 md:w-[85px] lg:w-[85px] lg:h-[65px] lg:ml-5  " src="./logo.png" alt="" />
             </Link>
 
 
